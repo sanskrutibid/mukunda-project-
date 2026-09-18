@@ -1,0 +1,387 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Alevia', serif
+}
+
+
+html,
+body {
+    font-family: 'Alevia', serif;
+    overflow-x: hidden !important;
+}
+
+/* custom CSS design */
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--secondary-color)
+}
+
+
+h4 {
+    color: var(--secondary-color);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    padding-top: 1rem;
+}
+
+h5 {
+    color: var(--white-color);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.75rem;
+    letter-spacing: 1px;
+}
+
+header-wrapper .navbar-brand img {
+    max-width: 300px;
+    height: auto;
+}
+
+.header-wrapper .navbar-toggler {
+    border: 0;
+    color: black;
+}
+
+.header-wrapper .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.header-wrapper .nav-item {
+    margin: 0 10px;
+}
+
+.header-wrapper .nav-item .nav-link {
+    position: relative;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+}
+
+.header-wrapper .nav-item .nav-link::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e60000;
+    transition: 0.3s;
+    bottom: 0;
+}
+
+.header-wrapper .nav-item .nav-link:active::after,
+.header-wrapper .nav-item .nav-link:hover:after {
+    width: 100%;
+    color: #e60000;
+}
+
+.header-wrapper .nav-item .nav-link:active,
+.header-wrapper .nav-item .nav-link:hover {
+    color: red;
+}
+
+.header-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding-top: 20px;
+    margin-bottom: 180px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.header-scrolled .nav-item .nav-link:active,
+.header-scrolled .nav-item .nav-link:hover {
+    color: #e60000;
+}
+
+.navbar-brand img {
+    height: 40px;
+    /* Adjust logo height */
+    width: auto;
+}
+.header-wrapper .navbar-brand img {
+    max-width: 300px;
+    height: auto;
+}
+
+.banner-wrapper {
+    width: 100%;
+    height: 500px;
+    min-height: 400px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 200px 0 100px 0;
+    overflow: hidden;
+  }
+  
+  .banner-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Darkness control */
+    z-index: 1;
+  }
+  
+  .banner-heading {
+    z-index: 2;
+    position: relative;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Makes text pop */
+  }
+  
+  .container.position-relative {
+    z-index: 2;
+  }
+  
+.main-wrapper
+{
+    padding: 0px;
+    margin: 0px;
+}
+.about-wrapper
+{
+    padding: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.title-content
+{
+    font-size: 40px;
+}
+.discover
+{
+    font-weight: bold;
+}
+.food-type {
+    padding: 3.25rem;
+}
+
+.food-type ul li {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 32px;
+    margin-left: 30px;
+}
+
+.food-type ul li::before {
+    position: absolute;
+    left: -2.1875rem;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-family: "Font Awesome 5 Free";
+    content: '\f015';
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+#VMV-section{
+    background-color: #F9F7F2;
+    padding: 50px 0;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 50px;
+}
+
+
+/* explore food design */
+.VMV-section .card {
+    border: none;
+    background-color: transparent;
+    border-radius: 0.9375rem;
+    padding: 20px;
+    margin: 20px;
+    gap: 10px;
+}
+
+.VMV-section .card img {
+    border-radius: 0.9375rem;
+    object-fit: cover;
+}
+.invitation
+{
+background-color: #F9F7F2;
+padding: 50px 0;
+transition: all 0.3s ease-in-out;
+}
+
+.invitation-bg
+{
+background: linear-gradient(to bottom right,
+rgba(0,0,0,0.4),
+rgba(0,0,0,0.4)
+)
+}
+
+.about-wrapper {
+    background-color: #F9F7F2;
+    padding: 50px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Typography improvements */
+  .about-wrapper h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+  }
+ 
+  .about-wrapper p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin: 10px;
+
+  }
+ 
+
+  #VMV-section p{
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin: 10px;
+  }
+
+footer {
+    background: #1f1f25;
+    color: #d1d5db;
+    padding: 10px;
+}
+
+footer h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #fd4766;
+    display: inline-block;
+    padding-bottom: 0.25rem;
+}
+
+footer .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .footer-col {
+    flex: 1 1 250px;
+    margin: 20px;
+}
+
+footer .footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .footer-col ul li {
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+footer .footer-col ul li:hover {
+    color: #fd4766;
+}
+
+footer .footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #aaa;
+    border-top: 1px solid #2e2e36;
+    margin-top: 40px;
+}
+
+
+.footer-socials a {
+    background: #333;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: background 0.3s;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.footer-socials a:hover {
+    background: #fd4766;
+}
+
+
+.logo-box img {
+    max-width: 220px;
+}
+
+.footer-title {
+    margin-top: 20px;
+}
+
+@media (max-width:1024px) {
+    .banner-wrapper h1 {
+        font-size: 42px;
+        text-align: center;
+    }
+}
+@media(max-width:767px) {
+    .title-content
+    {
+        font-size: 32px;
+        text-align: center;
+    }
+ }
+ @media (max-width:1024px) {
+    .title-content
+    {
+        font-size: 32px;
+        text-align: center;
+    }
+ }
+ @media (max-width:375px) {
+    .title-content
+    {
+        font-size: 36px;
+        text-align: center;
+    }
+    .about-para
+    {
+        text-align: justify;
+    }
+    .vmv-para{
+        text-align: justify;
+    }
+ }
+ @media (min-width: 481px) and (max-width: 767px) {
+    .title-content
+    {
+        font-size: 32px;
+        text-align: center;
+    }
+ }
+
+
+

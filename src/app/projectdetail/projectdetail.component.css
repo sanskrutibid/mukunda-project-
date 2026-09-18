@@ -1,0 +1,222 @@
+  /* Modern font (Google Fonts) */
+  /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap'); */
+* {
+    box-sizing: border-box;
+    font-family: 'Alevia', serif;
+}
+
+
+html,
+body {
+    font-family: 'Alevia', serif;
+    overflow-x: hidden !important;
+}
+.banner-wrapper {
+  width: 100%;
+  height: 500px;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 200px 0 100px 0;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness */
+  z-index: 1;
+}
+
+.banner-heading {
+  z-index: 2;
+  position: relative;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.container.position-relative {
+  z-index: 2;
+}
+
+  /* keshavam-city-7 section */
+  .keshavam-city-7, .ayodhya, .Karmabhoomi, .DevBhoomi, .Keshavam-City-15, .Keshavam-City-11, .Keshavam-City-10, .Keshavam-City-9, .Keshavam-City-8{
+    a:hover {
+      color: #e60000;
+    }
+  
+    i.la {
+      transition: transform 0.3s ease;
+    }
+  
+    li:hover i.la {
+      transform: scale(1.2);
+    }
+  
+    .btn:hover {
+      background-color: #e60000;
+      border-color: #e60000;
+      color: #fff;
+    }
+  }
+
+  .cs_card_info {
+    background: #ffffff;
+    border-left: 5px solid #e60000;
+    border-radius: 12px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .cs_card_info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cs_card_info h2 a {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #111;
+    transition: color 0.3s ease;
+  }
+  
+  .cs_card_info h2 a:hover {
+    color: #e60000;
+  }
+  
+  .cs_card_info p.text-muted {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .cs_card_info ul li {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .cs_card_info ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .cs_card_info ul i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  
+  .cs_card_info h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .cs_card_info .btn {
+    transition: all 0.3s ease;
+    border: 2px solid #111;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  
+  .cs_card_info .btn:hover {
+    background-color: #e60000;
+    color: #fff;
+    border-color: #e60000;
+  }
+  
+  .image-hover-effect {
+    overflow: hidden;
+    border-radius: 12px;
+  
+    img {
+      transition: transform 0.4s ease;
+    }
+  
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  #Industrial-park{
+    margin-bottom: 40px;
+  }
+  
+ 
+
+  .project-section img {
+    max-height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-section img:hover {
+    transform: scale(1.02);
+  }
+  
+  .project-section a.btn {
+    transition: all 0.3s ease;
+  }
+  .project-section a.btn:hover {
+    transform: scale(1.05);
+  }
+
+/* Heading Styling */
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a; /* Dark Gray */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Paragraph Styling */
+p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #6c757d; /* Lighter Gray */
+}
+
+/* List items styling */
+ul li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #343a40;
+}
+
+/* Button Styling */
+.btn-modern {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-modern:hover {   
+        background-color: #e60000;
+        border-color: #e60000;
+        color: #fff;
+
+}
+
+/* Icons Styling */
+.bi {
+  font-size: 1.2rem;
+  color: #1a1a1a; /* Dark Gray */
+  margin-right: 10px;
+}
+
+/* Add some spacing between list items */
+ul li {
+  margin-bottom: 15px;
+}
+
+/* Optional: Add some padding for clean layout */
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+  
+
+  

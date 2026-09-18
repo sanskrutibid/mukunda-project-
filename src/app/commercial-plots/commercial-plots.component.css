@@ -1,0 +1,139 @@
+.cp-hero-banner {
+  background-image: url('/assets/images/image/carousel-2.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 140px;
+  padding-bottom: 75px;
+  min-height: 480px;
+}
+
+.cp-hero-overlay {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(185, 28, 28, 0.8) 100%);
+}
+
+.hero-content-wrapper {
+  max-width: 950px;
+}
+
+.hero-title {
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  font-size: calc(1.8rem + 1.5vw);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffe066 0%, #ffc107 50%, #ff9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-stat-card {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 193, 7, 0.7);
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.25);
+}
+
+.max-width-850 {
+  max-width: 850px;
+}
+
+.hero-breadcrumb {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-chip:hover {
+  background: rgba(255, 193, 7, 0.18);
+  border-color: #ffc107;
+  color: #ffc107;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.25);
+}
+
+.hover-gold:hover {
+  color: #ffc107 !important;
+}
+
+.hero-btn {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 193, 7, 0.4) !important;
+}
+
+.text-gold {
+  color: #ffc107 !important;
+}
+
+.max-width-700 {
+  max-width: 700px;
+}
+
+.max-width-750 {
+  max-width: 750px;
+}
+
+.max-width-800 {
+  max-width: 800px;
+}
+
+.cp-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+.cp-card-img {
+  transition: transform 0.5s ease;
+}
+
+.cp-card:hover .cp-card-img {
+  transform: scale(1.05);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.04);
+}

@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <h3>Edit About Section</h3>
+  
+    <input type="file" (change)="onFileSelected($event)">
+    <br>
+    <img *ngIf="selectedImage" [src]="selectedImage" class="img-fluid mt-3" style="max-height: 200px;">
+    
+  
+    <div class="mb-3">
+      <label>Edit Text:</label>
+      <textarea [(ngModel)]="aboutText" (input)="onTextChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+    </div>
+  
+    <button class="btn btn-success" (click)="save()">Save</button>
+  </div>
+  

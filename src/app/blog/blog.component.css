@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Alevia', serif
+}
+
+
+html,
+body {
+    font-family: 'Alevia', serif;
+    overflow-x: hidden !important;
+}
+
+p {
+    font-size: 1rem;
+    color: #333;
+    font-size: 17px;
+    line-height: 1.75rem;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+
+.header {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* 0.8 = 80% opaque black */
+    z-index: 1;
+    background-size: cover;
+}
+.text-container h1{
+    position: relative;
+  z-index: 2;
+}
+.image-container
+{
+    height: 650px;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.square-red {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #dc3545;
+    border-radius: 3px;
+  }
+
+  .justify-text {
+    text-align: justify;
+  }
+
+  /* .talk-btn
+  {
+    padding-left: 150px;
+  }
+  @media(max-width:375px)
+  {
+    .talk-btn
+  {
+    padding-left: -50px;
+  }
+  } */
+
+  

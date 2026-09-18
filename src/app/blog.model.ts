@@ -1,0 +1,31 @@
+export interface Blog {
+  id: number;
+  title: string;
+  summary?: string;
+  heading1?: string;
+  paragraph1?: string;
+  image?: string;
+  date: Date;
+  heading2?: string;
+  paragraph2?: string;
+  heading3?: string;
+  paragraph3?: string;
+  heading4?: string;
+  paragraph4?: string;
+  heading5?: string;
+  paragraph5?: string;
+  heading6?: string;
+  paragraph6?: string;
+  heading7?: string;
+  paragraph7?: string;
+  heading8?: string;
+  paragraph8?: string;
+  heading9?: string;
+  paragraph9?: string;
+  heading10?: string;
+  paragraph10?: string;
+  heading11?: string;
+  paragraph11?: string;
+   heading12?: string;
+  paragraph12?: string;
+}

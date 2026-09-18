@@ -1,0 +1,64 @@
+<!-- Vision Section -->
+<div class="container mt-5">
+  <h3>Edit vision Section</h3>
+
+  <input type="file" (change)="onFileSelected($event)">
+  <br>
+  <img *ngIf="selectedImage" [src]="selectedImage" class="img-fluid mt-3" style="max-height: 200px;">
+  
+  <div class="mb-3">
+    <label>Edit Title:</label>
+    <textarea [(ngModel)]="visionTitle" (input)="onTitleChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label>Edit Text:</label>
+    <textarea [(ngModel)]="visionText" (input)="onTextChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <button class="btn btn-success" (click)="saveVision()">Save</button>
+</div>
+
+<!-- mission section -->
+
+<div class="container mt-5">
+  <h3>Edit mission Section</h3>
+
+  <input type="file" (change)="onFileMissionSelected($event)">
+  <br>
+  <img *ngIf="selectedMissionImage" [src]="selectedMissionImage" class="img-fluid mt-3" style="max-height: 200px;">
+
+  <div class="mb-3">
+    <label>Edit Title:</label>
+    <textarea [(ngModel)]="missionTitle" (input)="onMissionTitleChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label>Edit Text:</label>
+    <textarea [(ngModel)]="missionText" (input)="onMissionTextChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <button class="btn btn-success" (click)="saveMission()">Save</button>
+</div>
+
+<!-- Values section -->
+
+<div class="container mt-5">
+  <h3>Edit Values Section</h3>
+
+  <input type="file" (change)="onFileValueSelected($event)">
+  <br>
+  <img *ngIf="selectedValueImage" [src]="selectedValueImage" class="img-fluid mt-3" style="max-height: 200px;">
+
+  <div class="mb-3">
+    <label>Edit Title:</label>
+    <textarea [(ngModel)]="valuesTitle" (input)="onValueTitleChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label>Edit Text:</label>
+    <textarea [(ngModel)]="valuesText" (input)="onValueTextChange($event)" rows="4" class="form-control" placeholder="Enter about text..."></textarea>
+  </div>
+
+  <button class="btn btn-success" (click)="saveValue()">Save</button>
+</div>

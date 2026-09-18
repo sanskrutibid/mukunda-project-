@@ -1,0 +1,168 @@
+<!-- Hero Banner with Breadcrumbs -->
+<section class="cp-wh-hero position-relative d-flex align-items-center justify-content-center text-center text-white">
+  <div class="cp-wh-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+  <div class="container position-relative z-2 py-5">
+    
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3 d-inline-block">
+      <ol class="breadcrumb bg-transparent px-3 py-2 rounded-pill shadow-sm mb-0">
+        <li class="breadcrumb-item">
+          <a routerLink="/home" class="text-white text-decoration-none fw-medium">
+            <i class="las la-home me-1"></i>Home
+          </a>
+        </li>
+        <li class="breadcrumb-item">
+          <a routerLink="/location" class="text-white text-decoration-none fw-medium">
+            Location
+          </a>
+        </li>
+        <li class="breadcrumb-item active text-gold fw-semibold" aria-current="page">
+          Commercial Plot for Warehouses in Nagpur
+        </li>
+      </ol>
+    </nav>
+
+    <h1 class="display-4 fw-bold text-uppercase tracking-wide mb-3">
+      Commercial Plot for Warehouses in Nagpur
+    </h1>
+    <p class="lead max-width-800 mx-auto text-light opacity-90 fs-5">
+      Strategically located warehouse land with excellent connectivity to MIHAN, Samruddhi Expressway & Central India logistics networks.
+    </p>
+  </div>
+</section>
+
+<!-- Main Overview -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-4 mb-5">
+      <div class="col-lg-7">
+        <span class="badge bg-danger px-3 py-2 text-uppercase mb-2">Logistics & Supply Chain Hub</span>
+        <h2 class="fw-bold text-dark">Prime Land for Warehousing & Distribution</h2>
+        <p class="text-muted fs-6">
+          The demand for warehousing and logistics infrastructure is increasing rapidly as businesses expand distribution networks and search for strategically located storage facilities. In Central India, choosing the right commercial plot for warehouses is vital because location, highway connectivity, truck maneuverability, and future expansion capability directly determine operational efficiency.
+        </p>
+        <p class="text-muted fs-6">
+          Nagpur has emerged as an important logistics apex. If you are planning to purchase land for a warehouse, distribution centre, logistics facility, or storage unit, selecting the right commercial plot with Mukunda Infraventures is your optimal first step.
+        </p>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative">
+          <img src="assets/images/image/carousel-2.jpg" alt="Warehouse Land Nagpur" class="img-fluid object-fit-cover" style="height: 320px;" />
+          <div class="p-4 bg-dark text-white">
+            <h5 class="fw-bold text-warning mb-1"><i class="las la-truck me-2"></i>Logistics Growth Corridor</h5>
+            <small class="opacity-85">Optimized plot dimensions for heavy transport and container movement.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Invest Section -->
+    <div class="my-5">
+      <div class="text-center max-width-800 mx-auto mb-4">
+        <h2 class="fw-bold text-dark">Why Invest in a Commercial Plot for Warehouses?</h2>
+        <p class="text-muted">
+          A warehouse is far more than a storage space. Its location influences transportation costs, delivery schedules, workforce accessibility, and overall supply chain margins.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let adv of advantages">
+          <div class="card h-100 border-0 shadow-sm rounded-4 p-4 hover-up bg-white">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-box bg-danger text-white rounded-3 p-3 me-3">
+                <i class="las {{ adv.icon }} fs-2"></i>
+              </div>
+              <h5 class="fw-bold text-dark mb-0 fs-6">{{ adv.title }}</h5>
+            </div>
+            <p class="text-muted small mb-0">{{ adv.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What Makes a Good Warehouse Plot (5 Factors) -->
+    <div class="my-5 py-5 bg-white rounded-4 shadow-sm p-4 p-md-5">
+      <div class="text-center max-width-800 mx-auto mb-5">
+        <span class="badge bg-warning text-dark px-3 py-2 text-uppercase mb-2">Evaluation Guide</span>
+        <h2 class="fw-bold text-dark">What Makes a Good Warehouse Plot?</h2>
+        <p class="text-muted">
+          Before purchasing commercial land for a warehouse, evaluate key operational factors beyond plot size and price.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-12" *ngFor="let factor of factors">
+          <div class="p-4 border rounded-4 bg-light hover-up d-flex flex-column flex-md-row align-items-start align-items-md-center">
+            <div class="display-5 fw-bold text-danger me-md-4 mb-2 mb-md-0 min-width-60">
+              {{ factor.num }}
+            </div>
+            <div>
+              <h4 class="fw-bold text-dark fs-5 mb-1">{{ factor.title }}</h4>
+              <p class="text-muted mb-0 small">{{ factor.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Nagpur is Suitable -->
+    <div class="my-5 p-4 p-md-5 bg-dark text-white rounded-4 shadow-lg position-relative overflow-hidden">
+      <div class="row align-items-center position-relative z-2">
+        <div class="col-lg-8">
+          <span class="text-warning fw-bold text-uppercase tracking-wider">Central India Hub</span>
+          <h2 class="fw-bold mt-2 mb-3">Why Nagpur is Ideal for Warehouse Development</h2>
+          <p class="text-light opacity-90 mb-4">
+            Nagpur's unique geographical placement makes it the preferred transit node for multi-state logistics and distribution across Maharashtra, MP, Chhattisgarh, and Telangana. Proximity to highway networks and industrial corridors ensures optimal return on warehouse land investment.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a routerLink="/contacts" class="btn btn-warning btn-lg text-dark fw-bold px-4 rounded-pill shadow-sm">
+            <i class="las la-headset me-2"></i>Consult Real Estate Experts
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="my-5 max-width-900 mx-auto">
+      <div class="text-center mb-4">
+        <span class="badge bg-danger px-3 py-2 text-uppercase mb-2">FAQ Guide</span>
+        <h2 class="fw-bold text-dark">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion custom-accordion" id="warehouseFaqAccordion">
+        <div class="accordion-item border-0 mb-3 rounded-3 shadow-sm overflow-hidden" *ngFor="let faq of faqs; let i = index">
+          <h2 class="accordion-header">
+            <button 
+              class="accordion-button fw-bold text-dark fs-6" 
+              [class.collapsed]="activeFaqIndex !== i"
+              type="button" 
+              (click)="toggleFaq(i)">
+              <span class="me-3 text-danger fw-bold">0{{ i + 1 }}.</span> {{ faq.question }}
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" [class.show]="activeFaqIndex === i">
+            <div class="accordion-body text-muted bg-white p-4">
+              {{ faq.answer }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Site Visit CTA Banner -->
+<section class="py-5 bg-danger text-white text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Looking for a Warehouse Plot in Nagpur?</h2>
+    <p class="lead max-width-700 mx-auto opacity-90 mb-4">
+      Get plot layout plans, road clearance details, and book your free site visit with Mukunda Infraventures today.
+    </p>
+    <a routerLink="/contacts" class="btn btn-light text-danger fw-bold px-5 py-2.5 rounded-pill shadow-lg">
+      <i class="las la-calendar-check me-2"></i>Book a Free Site Visit
+    </a>
+  </div>
+</section>
