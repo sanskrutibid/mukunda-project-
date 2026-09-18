@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth.guards';
 export const routes: Routes = [
   { path: '', redirectTo: 'best-plot-in-nagpur', pathMatch: 'full' },
   { path: 'best-plot-in-nagpur', loadComponent: () => import('./home-office/home-office.component').then(m => m.HomeOfficeComponent) },
+  { path: 'home', redirectTo: 'best-plot-in-nagpur', pathMatch: 'full' },
 
   // {
   //   path: 'login',
