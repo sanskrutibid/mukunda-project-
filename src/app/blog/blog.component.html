@@ -1,276 +1,743 @@
-<!--Header-->
-<section class="header" [ngStyle]="{
-        'background-image': 'url(assets/images/image/blog.jpg)'
-    }">
-  <!--hero-->
+<!-- Header -->
+<section
+  class="header"
+  [ngStyle]="{
+    'background-image': 'url(assets/images/image/blog.jpg)'
+  }"
+>
+
+  <!-- Hero -->
   <div class="hero text-white">
+
     <div class="container">
+
       <div class="row">
+
         <div class="col-md-5 mt-5">
+
           <div class="image-container my-5 p-4 border-2">
-            <img src="assets/images/image/blog-head.jpeg" alt="Mukunda Infraventures blog section with aerial view of a premium plotted development in Nagpur." class="img-fluid border-2">
+
+            <img
+              src="assets/images/image/blog-head.jpeg"
+              alt="Mukunda Infraventures blog section with aerial view of a premium plotted development in Nagpur."
+              class="img-fluid border-2"
+            >
+
           </div>
+
         </div>
+
         <div class="col-md-7 mt-5" data-aos="fade-up">
-          <div class="text-container p-4 d-flex flex-column justify-content-center h-100 mb-3">
+
+          <div
+            class="text-container p-4 d-flex flex-column justify-content-center h-100 mb-3"
+          >
+
             <h1 class="fw-bold text-uppercase p-3">
-              <img src="/assets/images/U-Logo.png" style="width: 50px; margin-bottom: 15px;" alt="">
+
+              <!-- 1. Welcome to Blog -->
+              <img
+                src="/assets/images/U-Logo.png"
+                style="width: 50px; margin-bottom: 15px;"
+                alt="Top real estate developer in Nagpur"
+              >
+
               Welcome to Blog
+
             </h1>
-            <h4 class="text-warning">"Where Serenity Meets Modern Lifestyle"</h4>
-            <p class="lead text-justify text-white">Mukunda Infraventures & Projects Private Limited is more than just a real estate project — it’s a lifestyle.
+
+            <h4 class="text-warning">
+              "Where Serenity Meets Modern Lifestyle"
+            </h4>
+
+            <p class="lead text-justify text-white">
+              Mukunda Infraventure & Projects Private Limited is more than just
+              a real estate project — it’s a lifestyle.
               Whether you’re a first-time homebuyer, a growing family,
               or an investor looking for future-ready infrastructure,
-              Mukunda Infraventures & Projects Private Limited offers the perfect blend of connectivity, culture, and comfort.</p>
+              Mukunda Infraventure & Projects Private Limited offers the
+              perfect blend of connectivity, culture, and comfort.
+            </p>
+
             <div class="my-4">
-              <select class="form-select form-select-lg rounded-5 text-danger" (change)="onSelectChange($event)">
-                <option selected disabled>Select Property Type</option>
-                <option value="residential">Residential</option>
-                <option value="commercial">Commercial</option>
+
+              <select
+                class="form-select form-select-lg rounded-5 text-danger"
+                (change)="onSelectChange($event)"
+              >
+
+                <option selected disabled>
+                  Select Property Type
+                </option>
+
+                <option value="residential">
+                  Residential
+                </option>
+
+                <option value="commercial">
+                  Commercial
+                </option>
+
               </select>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
-  <svg class="frame-decoration" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
-    viewBox="0 0 1920 192.275">
+
+
+  <svg
+    class="frame-decoration"
+    data-name="Layer 2"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    viewBox="0 0 1920 192.275"
+  >
+
     <defs>
+
       <style>
         .cls-1 {
           fill: #f3f6f9;
         }
       </style>
+
     </defs>
+
     <title>frame-decoration</title>
-    <path class="cls-1"
+
+    <path
+      class="cls-1"
       d="M0,158.755s63.9,52.163,179.472,50.736c121.494-1.5,185.839-49.738,305.984-49.733,109.21,0,181.491,51.733,300.537,50.233,123.941-1.562,225.214-50.126,390.43-50.374,123.821-.185,353.982,58.374,458.976,56.373,217.907-4.153,284.6-57.236,284.6-57.236V351.03H0V158.755Z"
-      transform="translate(0 -158.755)" />
+      transform="translate(0 -158.755)"
+    />
+
   </svg>
+
 </section>
 
 
-<!-- blog updated section -->
- <section>
+<!-- Blog Updated Section -->
+<section>
+
   <div class="container mt-5">
-    <h1 class="text-center fw-bold my-4 display-5 text-danger text-uppercase">Let’s See Our Blogs</h1>
-  <div class="row">
-    <div class="col-md-6 mb-4" *ngFor="let blog of paginatedBlogs">
-      <div class="card h-100">
-        <img [src]="blog.image" class="card-img-top" alt="Blog Image">
-        <div class="card-body">
-          <h5 class="card-title">{{ blog.title }}</h5>
-          <p>{{ blog.date | date: 'MMM d, y' }}</p>
-           <!-- <p class="card-text">{{ blog.summary }}</p>
-          <p class="card-text">{{ blog.summary }}</p> -->
-          <a [routerLink]="['/blog', blog.id]" class="btn btn-danger rounded-pill">Read More</a>
+
+    <h1
+      class="text-center fw-bold my-4 display-5 text-danger text-uppercase"
+    >
+      Let’s See Our Blogs
+    </h1>
+
+    <div class="row">
+
+      <div
+        class="col-md-6 mb-4"
+        *ngFor="let blog of paginatedBlogs"
+      >
+
+        <div class="card h-100">
+
+          <img
+            [src]="blog.image"
+            class="card-img-top"
+            [alt]="blog.title + ' - Best real estate firm in Nagpur'"
+          >
+
+          <div class="card-body">
+
+            <h5 class="card-title">
+              {{ blog.title }}
+            </h5>
+
+            <p>
+              {{ blog.date | date: 'MMM d, y' }}
+            </p>
+
+            <!--
+            <p class="card-text">
+              {{ blog.summary }}
+            </p>
+
+            <p class="card-text">
+              {{ blog.summary }}
+            </p>
+            -->
+
+            <a
+              [routerLink]="['/blog', blog.id]"
+              class="btn btn-danger rounded-pill"
+            >
+              Read More
+            </a>
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
+
+
+    <!-- Pagination -->
+    <nav>
+
+      <ul class="pagination justify-content-center">
+
+        <li
+          class="page-item"
+          *ngFor="let page of totalPages"
+        >
+
+          <button
+            class="page-link"
+            (click)="changePage(page)"
+          >
+            {{ page }}
+          </button>
+
+        </li>
+
+      </ul>
+
+    </nav>
+
   </div>
 
-  <!-- Pagination -->
-  <nav>
-    <ul class="pagination justify-content-center">
-      <li class="page-item" *ngFor="let page of totalPages">
-        <button class="page-link" (click)="changePage(page)">{{ page }}</button>
-      </li>
-    </ul>
-  </nav>
-</div>
-
- </section>
-
-<!--Icons-->
-<section class="icons bg-light p-5" data-aos="fade-right" style="margin-top: -1px;">
-  <div class="container-xl">
-    <div class="row h-stack g-4">
-      <div class="col-md-4 d-flex gap-4">
-        <fa-icon [icon]="faMapMarkerAlt" class="text-danger me-2 fs-3"></fa-icon>
-        <div>
-          <h5 class="fw-bold">Prime Location</h5>
-          <p class="text-muted justify-content-between">Located near key landmarks, Mukunda Infraventures & Projects Private Limited ensures easy access to
-            schools, temples, and commercial zones. It combines the convenience of city life with the calm of nature.
-          </p>
-        </div>
-      </div> <!--1-->
-      <div class="col-md-4 d-flex gap-4">
-        <fa-icon [icon]="faBuilding" class="text-danger me-2 fs-3"></fa-icon>
-        <div>
-          <h5 class="fw-bold">Modern Amenities</h5>
-          <p class="text-muted justify-content-between">From landscaped gardens and gated security to kids’ play areas,
-            jogging tracks, and a community hall — the project is built for a balanced lifestyle.</p>
-        </div>
-      </div><!--2-->
-      <div class="col-md-4 d-flex gap-4">
-        <fa-icon [icon]="faTools" class="text-danger me-2 fs-3"></fa-icon>
-        <div>
-          <h5 class="fw-bold">Smart Infrastructure</h5>
-          <p class="text-muted justify-content-between">Designed with sustainable architecture, ample parking space, and
-            wide roads, Mukunda Infraventures & Projects Private Limited is built with long-term vision and Vastu principles.</p>
-        </div>
-      </div><!--3-->
-    </div>
-  </div>
 </section>
 
-<!--Details-->
-<section id="details" class="details my-5" data-aos="fade-left">
+
+<!-- Icons -->
+<section
+  class="icons bg-light p-5"
+  data-aos="fade-right"
+  style="margin-top: -1px;"
+>
+
+  <div class="container-xl">
+
+    <div class="row h-stack g-4">
+
+      <!-- 1 -->
+      <div class="col-md-4 d-flex gap-4">
+
+        <fa-icon
+          [icon]="faMapMarkerAlt"
+          class="text-danger me-2 fs-3"
+        ></fa-icon>
+
+        <div>
+
+          <h5 class="fw-bold">
+            Prime Location
+          </h5>
+
+          <p class="text-muted justify-content-between">
+            Located near key landmarks, Mukunda Infraventure & Projects
+            Private Limited ensures easy access to schools, temples, and
+            commercial zones. It combines the convenience of city life with
+            the calm of nature.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- 2 -->
+      <div class="col-md-4 d-flex gap-4">
+
+        <fa-icon
+          [icon]="faBuilding"
+          class="text-danger me-2 fs-3"
+        ></fa-icon>
+
+        <div>
+
+          <h5 class="fw-bold">
+            Modern Amenities
+          </h5>
+
+          <p class="text-muted justify-content-between">
+            From landscaped gardens and gated security to kids’ play areas,
+            jogging tracks, and a community hall — the project is built for
+            a balanced lifestyle.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- 3 -->
+      <div class="col-md-4 d-flex gap-4">
+
+        <fa-icon
+          [icon]="faTools"
+          class="text-danger me-2 fs-3"
+        ></fa-icon>
+
+        <div>
+
+          <h5 class="fw-bold">
+            Smart Infrastructure
+          </h5>
+
+          <p class="text-muted justify-content-between">
+            Designed with sustainable architecture, ample parking space, and
+            wide roads, Mukunda Infraventure & Projects Private Limited is
+            built with long-term vision and Vastu principles.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Details -->
+<section
+  id="details"
+  class="details my-5"
+  data-aos="fade-left"
+>
+
   <div class="container">
+
     <div class="row">
+
       <div class="col-md-6">
-        <div class="text-container d-flex flex-column text-justify h-100">
-          <h3 class="fw-bold  mb-4 text-uppercase">
-            <img src="/assets/images/U-Logo.png" style="width: 50px; margin-bottom: 15px;" alt="">
+
+        <div
+          class="text-container d-flex flex-column text-justify h-100"
+        >
+
+          <h3 class="fw-bold mb-4 text-uppercase">
+
+            <!-- 2. Unlock Exceptional Investment Potential -->
+            <img
+              src="/assets/images/U-Logo.png"
+              style="width: 50px; margin-bottom: 15px;"
+              alt="Best real estate investment in Nagpur"
+            >
+
             Unlock Exceptional Investment Potential
+
           </h3>
-          <p class="justify-text">As infrastructure rapidly evolves around Mukunda Infraventures & Projects Private Limited, your property value isn’t just
-            secure — it’s
-            destined to grow.
-            Whether you're investing for the future or building your dream home, Mukunda Infraventures & Projects Private Limited offers the perfect
-            blend of stability, appreciation, and lifestyle.</p>
+
+          <p class="justify-text">
+            As infrastructure rapidly evolves around Mukunda Infraventure &
+            Projects Private Limited, your property value isn’t just secure —
+            it’s destined to grow.
+            Whether you're investing for the future or building your dream
+            home, Mukunda Infraventure & Projects Private Limited offers the
+            perfect blend of stability, appreciation, and lifestyle.
+          </p>
+
+
           <ul class="list-group list-group-flush lh-lg justify-text">
+
             <li class="list-group-item">
+
               <p class="justify-text">
-                <fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon><strong> Smart Investment, Smarter
-                  Returns:</strong>With land value surging in the region, your purchase today is tomorrow’s profit.
+
+                <fa-icon
+                  [icon]="faSquare"
+                  class="text-danger me-2"
+                ></fa-icon>
+
+                <strong>
+                  Smart Investment, Smarter Returns:
+                </strong>
+
+                With land value surging in the region, your purchase today is
+                tomorrow’s profit.
+
               </p>
+
             </li>
+
           </ul>
+
+
           <ul class="list-group list-group-flush lh-lg justify-text">
+
             <li class="list-group-item">
-              <p><fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon><strong> High Connectivity & Prime
-                  Location:</strong>Close to schools, hospitals, and highways — live at the center of convenience.</p>
+
+              <p>
+
+                <fa-icon
+                  [icon]="faSquare"
+                  class="text-danger me-2"
+                ></fa-icon>
+
+                <strong>
+                  High Connectivity & Prime Location:
+                </strong>
+
+                Close to schools, hospitals, and highways — live at the center
+                of convenience.
+
+              </p>
+
             </li>
+
           </ul>
+
+
           <ul class="list-group list-group-flush lh-lg justify-text">
+
             <li class="list-group-item">
-              <p><fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon><strong> Peaceful Lifestyle with Modern
-                  Comforts:</strong>Enjoy a well-planned township with wide roads, lush greenery, and 24/7 security.</p>
+
+              <p>
+
+                <fa-icon
+                  [icon]="faSquare"
+                  class="text-danger me-2"
+                ></fa-icon>
+
+                <strong>
+                  Peaceful Lifestyle with Modern Comforts:
+                </strong>
+
+                Enjoy a well-planned township with wide roads, lush greenery,
+                and 24/7 security.
+
+              </p>
+
             </li>
+
           </ul>
-          <a routerLink="/projects" class="btn btn-danger text-white mt-4 align-self-start rounded-5"
-            data-bs-toggle="modal" data-bs-target="#modal1">
+
+
+          <a
+            routerLink="/projects"
+            class="btn btn-danger text-white mt-4 align-self-start rounded-5"
+            data-bs-toggle="modal"
+            data-bs-target="#modal1"
+          >
             Book a Free Site Visit
           </a>
+
         </div>
+
       </div>
+
+
       <div class="col-md-6">
+
         <div class="image-container p-5">
-          <img src="assets/images/image/blog-head.jpg" alt="" class="img-fluid">
+
+          <img
+            src="assets/images/image/blog-head.jpg"
+            alt="Land developer in Nagpur"
+            class="img-fluid"
+          >
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!--Statement-->
-<section class="statement mb-5" data-aos="fade-right">
+
+<!-- Statement -->
+<section
+  class="statement mb-5"
+  data-aos="fade-right"
+>
+
   <div class="container">
+
     <div class="row">
+
       <div class="col-12">
-        <div class="text-container bg-light p-5" style="text-align: center;">
+
+        <div
+          class="text-container bg-light p-5"
+          style="text-align: center;"
+        >
+
           <h2 class="fw-bold text-uppercase text-center">
-            <img src="/assets/images/U-Logo.png" style="width: 50px; margin-bottom: 15px;" alt="">
+
+            <!-- 3. Welcome to Mukunda Infraventure & Projects Pvt. Ltd. -->
+            <img
+              src="/assets/images/U-Logo.png"
+              style="width: 50px; margin-bottom: 15px;"
+              alt="Real estate company in Nagpur"
+            >
+
             Welcome to Mukunda Infraventure & Projects Pvt. Ltd.
+
           </h2>
+
           <hr>
+
           <p>
-            Welcome to Mukunda Infraventures & Projects Private Limited, the distinguished real estate division of the Mukunda Infraventures & Projects Private Limited Group. As a leading brand in
-            Central India, we specialize in the rapid expansion of premier real estate ventures. With an extensive
-            portfolio spanning over 150 acres, our projects encompass residential townships, industrial parks, and
-            housing initiatives, showcasing our commitment to innovation and excellence in development.</p>
+            Welcome to Mukunda Infraventures & Projects Private Limited, the
+            distinguished real estate division of the Mukunda Infraventures &
+            Projects Private Limited Group. As a leading brand in Central
+            India, we specialize in the rapid expansion of premier real estate
+            ventures. With an extensive portfolio spanning over 150 acres, our
+            projects encompass residential townships, industrial parks, and
+            housing initiatives, showcasing our commitment to innovation and
+            excellence in development.
+          </p>
+
           <hr>
-          <p>At Mukunda Infraventures & Projects Private Limited, we deeply appreciate our partnerships with Channel Partners and aim to develop a strong,
-            enduring collaboration that mutually benefits both parties.
-            Become our Channel Partner and receive exclusive early access to our special promotions and upcoming
-            projects. Additionally, we offer comprehensive marketing support, training programs, and a range of valuable
-            resources to help you succeed. Join us today and enjoy the prestigious benefits of being a trusted Partner.
-            <hr>
+
+          <p>
+            At Mukunda Infraventures & Projects Private Limited, we deeply
+            appreciate our partnerships with Channel Partners and aim to
+            develop a strong, enduring collaboration that mutually benefits
+            both parties.
+            Become our Channel Partner and receive exclusive early access to
+            our special promotions and upcoming projects. Additionally, we
+            offer comprehensive marketing support, training programs, and a
+            range of valuable resources to help you succeed. Join us today and
+            enjoy the prestigious benefits of being a trusted Partner.
+          </p>
+
+          <hr>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 
-<!--details 2-->
-<section class="details my-5" data-aos="fade-right">
+<!-- Details 2 -->
+<section
+  class="details my-5"
+  data-aos="fade-right"
+>
+
   <div class="container">
+
     <div class="row">
+
       <div class="col-lg-6">
-        <div class="image-container p-5" style="height: 800px;">
-          <img src="assets/images/image/blog-j.jpg" alt="" class="img-fluid">
+
+        <div
+          class="image-container p-5"
+          style="height: 800px;"
+        >
+
+          <img
+            src="assets/images/image/blog-j.jpg"
+            alt="Best real estate firm in Nagpur"
+            class="img-fluid"
+          >
+
         </div>
+
       </div>
+
+
       <div class="col-lg-6">
-        <div class="text-container d-flex flex-column justify-content-center h-100">
-          <h2 class="fw-bold text-center justify-content-center mb-4 text-uppercase">
-            <img src="/assets/images/U-Logo.png" style="width: 50px; margin-bottom: 15px;" alt="">
+
+        <div
+          class="text-container d-flex flex-column justify-content-center h-100"
+        >
+
+          <h2
+            class="fw-bold text-center justify-content-center mb-4 text-uppercase"
+          >
+
+            <!-- 4. The Journey to Your Dream Home Starts Here -->
+            <img
+              src="/assets/images/U-Logo.png"
+              style="width: 50px; margin-bottom: 15px;"
+              alt="Leading property developer in Nagpur"
+            >
+
             The Journey to Your Dream Home Starts Here
+
           </h2>
-          <p class="justify-text">We’ve all walked past a property and thought — “Could this be the one?” But creating
-            truly
-            unforgettable living spaces isn’t by chance — it’s by design. At Mukunda Infraventures & Projects Private Limited Real Estate, we build more than
-            homes; we build lasting impressions.</p>
+
+          <p class="justify-text">
+            We’ve all walked past a property and thought — “Could this be the
+            one?” But creating truly unforgettable living spaces isn’t by chance
+            — it’s by design. At Mukunda Infraventure & Projects Private
+            Limited Real Estate, we build more than homes; we build lasting
+            impressions.
+          </p>
+
+
           <ul class="list-group list-group-flush justify-text lh-lg">
+
             <li class="list-group-item">
-              <fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon>
-              <strong>It Starts with the Eyes: </strong>Before a brick is ever laid, we focus on what you see. Wide
-              roads, clean landscapes, striking elevations — every element is designed to capture attention and reflect
-              elegance. When you step into a Mukunda Infraventures & Projects Private Limited property, your eyes tell you it feels right.
+
+              <fa-icon
+                [icon]="faSquare"
+                class="text-danger me-2"
+              ></fa-icon>
+
+              <strong>
+                It Starts with the Eyes:
+              </strong>
+
+              Before a brick is ever laid, we focus on what you see. Wide
+              roads, clean landscapes, striking elevations — every element is
+              designed to capture attention and reflect elegance. When you step
+              into a Mukunda Infraventure & Projects Private Limited property,
+              your eyes tell you it feels right.
+
             </li>
+
           </ul>
+
+
           <ul class="list-group list-group-flush justify-text lh-lg">
+
             <li class="list-group-item">
-              <fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon>
-              <strong>Then, It Reaches the Mind: </strong>Next comes the value — the numbers, the location, the
-              amenities. Each of our projects is planned with growth in mind. Whether you're buying your first plot or
-              expanding your portfolio, you're not just making a choice — you're making a smart move.
+
+              <fa-icon
+                [icon]="faSquare"
+                class="text-danger me-2"
+              ></fa-icon>
+
+              <strong>
+                Then, It Reaches the Mind:
+              </strong>
+
+              Next comes the value — the numbers, the location, the amenities.
+              Each of our projects is planned with growth in mind. Whether
+              you're buying your first plot or expanding your portfolio, you're
+              not just making a choice — you're making a smart move.
+
             </li>
+
           </ul>
+
+
           <ul class="list-group list-group-flush justify-text lh-lg">
+
             <li class="list-group-item">
-              <fa-icon [icon]="faSquare" class="text-danger me-2"></fa-icon>
-              <strong>Finally, It Lands on the Heart: </strong>Your home is more than walls and windows — it’s where
-              memories begin. Mukunda Infraventures & Projects Private Limited Real Estate offers you a space that’s peaceful, purposeful, and personal. Because
-              we know what it means to feel at home the moment you walk in.
+
+              <fa-icon
+                [icon]="faSquare"
+                class="text-danger me-2"
+              ></fa-icon>
+
+              <strong>
+                Finally, It Lands on the Heart:
+              </strong>
+
+              Your home is more than walls and windows — it’s where memories
+              begin. Mukunda Infraventure & Projects Private Limited Real
+              Estate offers you a space that’s peaceful, purposeful, and
+              personal. Because we know what it means to feel at home the
+              moment you walk in.
+
             </li>
+
           </ul>
-          <h6 class="text-center mt-3 text-danger fs-5">“At Mukunda Infraventures & Projects Private Limited, it’s not just about building spaces — it’s about
-            shaping futures.”
+
+
+          <h6 class="text-center mt-3 text-danger fs-5">
+            “At Mukunda Infraventure & Projects Private Limited, it’s not just
+            about building spaces — it’s about shaping futures.”
           </h6>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
-<!--Download-->
-<section class="download mt-5 mb-5" [ngStyle]="{
-        'background-image': 'url(assets/images/image/blog.jpg)'
-    }" data-aos="fade-left">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5">
-        <div class="image-container" style="margin-top: -70px; background-size: cover;">
-          <img src="assets/images/image/karmabhumi.png" alt="" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="text-container text-white d-flex flex-column justify-content-center h-100 mb-5">
-          <h2 class="fw-bold text-center">Step into Mukunda Infraventure & Projects Pvt. Ltd. </h2>
-          <!--Form-->
 
-          <div class="d-flex justify-content-center mb-3 m-5 talk-btn">
-            <a routerLink="/contacts" class="btn btn-danger btn-lg px-5">
-              Let's Talk
-              <fa-icon [icon]="faArrowRight" class="ms-2" style="font-size: 18px; vertical-align: middle;"></fa-icon>
-            </a>
-          </div>
+<!-- Download -->
+<section
+  class="download mt-5 mb-5"
+  [ngStyle]="{
+    'background-image': 'url(assets/images/image/blog.jpg)'
+  }"
+  data-aos="fade-left"
+>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-5">
+
+        <div
+          class="image-container"
+          style="margin-top: -70px; background-size: cover;"
+        >
+
+          <img
+            src="assets/images/image/karmabhumi.png"
+            alt="Commercial plot for sale in Nagpur"
+            class="img-fluid"
+          >
+
         </div>
+
       </div>
+
+
+      <div class="col-lg-7">
+
+        <div
+          class="text-container text-white d-flex flex-column justify-content-center h-100 mb-5"
+        >
+
+          <h2 class="fw-bold text-center">
+            Step into Mukunda Infraventure & Projects Pvt. Ltd.
+          </h2>
+
+          <!-- Form -->
+          <div class="d-flex justify-content-center mb-3 m-5 talk-btn">
+
+            <a
+              routerLink="/contacts"
+              class="btn btn-danger btn-lg px-5"
+            >
+              Let's Talk
+
+              <fa-icon
+                [icon]="faArrowRight"
+                class="ms-2"
+                style="font-size: 18px; vertical-align: middle;"
+              ></fa-icon>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>

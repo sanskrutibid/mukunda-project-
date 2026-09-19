@@ -1,0 +1,50 @@
+<!-- Hero banner (same background image as your other pages) -->
+<section class="faq-hero" style="background-image: url('assets/images/image/carousel-2.jpg')">
+  <div class="faq-hero__overlay"></div>
+  <div class="container position-relative">
+    <h1 class="faq-hero__title">Frequently asked questions</h1>
+    <p class="faq-hero__text">Answers about the plotted developments by Mukunda Infraventures in Nagpur.</p>
+  </div>
+</section>
+
+<!-- FAQ list -->
+<section class="faq-page">
+  <div class="container">
+    <div class="faq-wrap">
+
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let item of faqs; let i = index" [class.open]="openIndex === i">
+          <h2 class="faq-q">
+            <button type="button" class="faq-btn" [id]="'faq-btn-' + i" [attr.aria-expanded]="openIndex === i"
+              [attr.aria-controls]="'faq-panel-' + i" (click)="toggle(i)">
+              <span>{{ item.question }}</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="faq-panel" [id]="'faq-panel-' + i" role="region" [attr.aria-labelledby]="'faq-btn-' + i">
+            <div class="faq-panel__inner">
+              <p>{{ item.answer }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links to the project pages -->
+      <div class="faq-projects">
+        <h2 class="faq-projects__title">Explore the projects</h2>
+        <ul class="faq-chips">
+          <li *ngFor="let p of projects">
+            <a [routerLink]="p.link">{{ p.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact box -->
+      <div class="faq-cta">
+        <p class="faq-cta__text">Want plot availability, pricing or a site visit? Talk to our team.</p>
+        <a routerLink="/contacts" class="btn btn-danger rounded-pill px-4">Contact us</a>
+      </div>
+
+    </div>
+  </div>
+</section>

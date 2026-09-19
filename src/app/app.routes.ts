@@ -40,6 +40,7 @@ export const routes: Routes = [
   { path: 'contacts', loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent) },
   { path: 'blog', loadComponent: () => import('./blog/blog.component').then(m => m.BlogComponent) },
   { path: 'career', loadComponent: () => import('./career/career.component').then(m => m.CareerComponent) },
+  { path: 'faq', loadComponent: () => import('./faq/faq.component').then(m => m.FaqComponent) },
   {
     path: 'blog/:id',
     loadComponent: () => import('./blog-detail/blog-detail.component').then(m => m.BlogDetailComponent),
