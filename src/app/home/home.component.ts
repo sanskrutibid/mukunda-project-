@@ -46,7 +46,7 @@ export class HomeComponent implements AfterViewInit, OnInit, OnDestroy {
     private metaService: Meta
   ) { }
 
-  aboutImage: string = 'assets/images/image/u _logo_ image.png';
+  aboutImage: string = 'assets/images/image/u_logo_image.png';
   aboutText: string = '';
 
   visionText: string = '';

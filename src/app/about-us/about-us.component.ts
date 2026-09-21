@@ -27,7 +27,7 @@ export class AboutUsComponent implements OnInit {
     });
   }
   aboutText = 'Mukunda Infraventures & Projects Private Limited, a premier real estate firm in Nagpur, specializes in extensive land-focused projects covering over 150 acres of development. Renowned for our expertise in creating exceptional residential townships, industrial parks, and gated housing complexes, we boast a portfolio exceeding 5 million square feet of current project developments. Our successful ventures include landmark projects along Samruddhi Mahamarg, Wardha Road, and Bhandara Road, showcasing our unwavering commitment to delivering superior quality housing developments built to the highest standards.'
-  aboutImage: string = 'assets/images/image/u _logo_ image.png';
+  aboutImage: string = 'assets/images/image/u_logo_image.png';
   isMenuOpen = false;
   faArrowRight = faArrowRight;
 
