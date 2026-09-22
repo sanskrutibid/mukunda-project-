@@ -1,146 +1,148 @@
-<header class="header-wrapper" id="home"> 
-    <!-- Navbar Section --> 
-    <nav class="navbar navbar-expand-lg navbar-lg fixed-top"> 
-        <div class="container-fluid px-4 navbar-head"> 
-
-            <a class="navbar-brand" href="#"> 
-                <!-- <img src="/assets/images/mukunda_group_logo.jpeg" class="img-logo" alt="logo"> --> 
-
-                <img 
-                    src="/assets/images/mukunda_logo_1.png" 
-                    class="img-logo" 
-                    alt="Leading property developer in Nagpur - real estate company in Nagpur" 
-                > 
-
-                <img 
-                    src="/assets/images/logo_MUKUNDA.png" 
-                    class="img-fluid" 
-                    alt="Best real estate firm in Nagpur - top real estate developer in Nagpur" 
-                > 
-            </a> 
-
-            <button 
-                class="svg-menu-toggler d-block d-lg-none" 
-                type="button" 
-                (click)="toggleMenu()" 
-            > 
-                <svg width="30" height="30" viewBox="0 0 100 80" fill="#333"> 
-                    <rect width="100" height="10"></rect> 
-                    <rect y="30" width="100" height="10"></rect> 
-                    <rect y="60" width="100" height="10"></rect> 
-                </svg> 
-            </button> 
-
-            <div 
-                class="collapse navbar-collapse justify-content-end" 
-                id="navbarNav" 
-                [ngClass]="{ show: isMenuOpen }" 
-            > 
-                <ul class="navbar-nav menu-navbar-nav"> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            class="nav-link" 
-                            routerLink="/best-plot-in-nagpur" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                        > 
-                            Home 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            class="nav-link" 
-                            routerLinkActive="active" 
-                            routerLink="discover" 
-                            (click)="closeMenu()" 
-                        > 
-                            Discover 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="aboutus" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            About-Us 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="blog" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            Blog 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="projects" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            Projects 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="career" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            Careers 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="faq" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            FAQ 
-                        </a> 
-                    </li> 
-
-                    <li class="nav-item"> 
-                        <a 
-                            routerLink="contacts" 
-                            routerLinkActive="active" 
-                            (click)="closeMenu()" 
-                            class="nav-link" 
-                        > 
-                            Contact-Us 
-                        </a> 
-                    </li> 
-
-                    <!-- 
-                    <li class="nav-item"> 
-                        <a 
-                            class="nav-link" 
-                            [routerLink]="'/login'" 
-                            (click)="closeMenu()" 
-                        > 
-                            Login 
-                        </a> 
-                    </li> 
-                    --> 
-
-                </ul> 
-            </div> 
-
-        </div> 
-    </nav> 
+<header class="header-wrapper" id="home">  
+    <!-- Navbar Section -->  
+    <nav class="navbar navbar-expand-lg navbar-lg fixed-top">  
+        <div class="container-fluid px-4 navbar-head">  
+ 
+            <a class="navbar-brand" href="#">  
+                <!-- <img src="/assets/images/mukunda_group_logo.jpeg" class="img-logo" alt="logo"> -->  
+ 
+                <img  
+                    src="/assets/images/mukunda_logo_1.png"  
+                    class="img-logo"  
+                    alt="real estate company in Nagpur"  
+                    title="Mukunda Infraventures"  
+                >  
+ 
+                <img  
+                    src="/assets/images/logo_MUKUNDA.png"  
+                    class="img-fluid"  
+                    alt="top real estate developer in Nagpur"  
+                    title="Mukunda Infraventures"  
+                >  
+            </a>  
+ 
+            <button  
+                class="svg-menu-toggler d-block d-lg-none"  
+                type="button"  
+                (click)="toggleMenu()"  
+            >  
+                <svg width="30" height="30" viewBox="0 0 100 80" fill="#333">  
+                    <rect width="100" height="10"></rect>  
+                    <rect y="30" width="100" height="10"></rect>  
+                    <rect y="60" width="100" height="10"></rect>  
+                </svg>  
+            </button>  
+ 
+            <div  
+                class="collapse navbar-collapse justify-content-end"  
+                id="navbarNav"  
+                [ngClass]="{ show: isMenuOpen }"  
+            >  
+                <ul class="navbar-nav menu-navbar-nav">  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            class="nav-link"  
+                            routerLink="/best-plot-in-nagpur"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                        >  
+                            Home  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            class="nav-link"  
+                            routerLinkActive="active"  
+                            routerLink="discover"  
+                            (click)="closeMenu()"  
+                        >  
+                            Discover  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="aboutus"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            About-Us  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="blog"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            Blog  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="projects"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            Projects  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="career"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            Careers  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="faq"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            FAQ  
+                        </a>  
+                    </li>  
+ 
+                    <li class="nav-item">  
+                        <a  
+                            routerLink="contacts"  
+                            routerLinkActive="active"  
+                            (click)="closeMenu()"  
+                            class="nav-link"  
+                        >  
+                            Contact-Us  
+                        </a>  
+                    </li>  
+ 
+                    <!--  
+                    <li class="nav-item">  
+                        <a  
+                            class="nav-link"  
+                            [routerLink]="'/login'"  
+                            (click)="closeMenu()"  
+                        >  
+                            Login  
+                        </a>  
+                    </li>  
+                    -->  
+ 
+                </ul>  
+            </div>  
+ 
+        </div>  
+    </nav>  
 </header>
