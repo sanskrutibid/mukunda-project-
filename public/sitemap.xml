@@ -1,21 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mukundainfraventures.in/best-plot-in-nagpur</loc></url>
-  <url><loc>https://mukundainfraventures.in/discover</loc></url>
-  <url><loc>https://mukundainfraventures.in/aboutus</loc></url>
-  <url><loc>https://mukundainfraventures.in/projects</loc></url>
-  <url><loc>https://mukundainfraventures.in/blog</loc></url>
-  <url><loc>https://mukundainfraventures.in/career</loc></url>
-  <url><loc>https://mukundainfraventures.in/faq</loc></url>
-  <url><loc>https://mukundainfraventures.in/contacts</loc></url>
-  <url><loc>https://mukundainfraventures.in/karmabhumi</loc></url>
-  <url><loc>https://mukundainfraventures.in/ayodhya</loc></url>
-  <url><loc>https://mukundainfraventures.in/dwarka</loc></url>
-  <url><loc>https://mukundainfraventures.in/vraj</loc></url>
-  <url><loc>https://mukundainfraventures.in/keshavam-city-7</loc></url>
-  <url><loc>https://mukundainfraventures.in/keshavam-city-9</loc></url>
-  <url><loc>https://mukundainfraventures.in/keshavam-city-10</loc></url>
-  <url><loc>https://mukundainfraventures.in/location</loc></url>
-  <url><loc>https://mukundainfraventures.in/location/plots-in-nagpur</loc></url>
-  <url><loc>https://mukundainfraventures.in/location/warehouses-in-nagpur</loc></url>
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://mukundainfraventures.in/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Discover -->
+  <url>
+    <loc>https://mukundainfraventures.in/discover</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Us -->
+  <url>
+    <loc>https://mukundainfraventures.in/aboutus</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Projects -->
+  <url>
+    <loc>https://mukundainfraventures.in/projects</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://mukundainfraventures.in/contacts</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://mukundainfraventures.in/blog</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Career -->
+  <url>
+    <loc>https://mukundainfraventures.in/career</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://mukundainfraventures.in/faq</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Keshavam City 7 -->
+  <url>
+    <loc>https://mukundainfraventures.in/keshavam-city-7</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Karmabhoomi -->
+  <url>
+    <loc>https://mukundainfraventures.in/karmabhumi</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Vraj -->
+  <url>
+    <loc>https://mukundainfraventures.in/vraj</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ayodhya -->
+  <url>
+    <loc>https://mukundainfraventures.in/ayodhya</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dwarka -->
+  <url>
+    <loc>https://mukundainfraventures.in/dwarka</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Keshavam City 9 -->
+  <url>
+    <loc>https://mukundainfraventures.in/keshavam-city-9</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Keshavam City 10 -->
+  <url>
+    <loc>https://mukundainfraventures.in/keshavam-city-10</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Location -->
+  <url>
+    <loc>https://mukundainfraventures.in/location</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Plots in Nagpur -->
+  <url>
+    <loc>https://mukundainfraventures.in/location/plots-in-nagpur</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Warehouses in Nagpur -->
+  <url>
+    <loc>https://mukundainfraventures.in/location/warehouses-in-nagpur</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

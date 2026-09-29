@@ -21,27 +21,27 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets",
-    "output": "assets"
-  },
-  {
-    "glob": "favicon.ico",
-    "input": "src",
-    "output": "."
-  },
-  {
-    "glob": "sitemap.xml",
-    "input": "src",
-    "output": "."
-  },
-  {
-    "glob": "robots.txt",
-    "input": "src",
-    "output": "."
-  }
-],
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "."
+              },
+              {
+                "glob": "robots.txt",
+                "input": "public",
+                "output": "."
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "public",
+                "output": "."
+              }
+            ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
@@ -130,13 +130,13 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-    "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets",
-    "output": "assets"
-  }
-],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              }
+            ],
             "styles": [
               "src/styles.css"
             ],

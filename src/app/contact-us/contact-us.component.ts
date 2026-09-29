@@ -15,18 +15,23 @@ import emailjs from '@emailjs/browser';
 export class ContactUsComponent implements OnInit {
 
   constructor(
-  private titleService: Title,
-  private metaService: Meta
-) {}
+    private titleService: Title,
+    private metaService: Meta
+  ) {}
 
 
   ngOnInit(): void {
-   this.titleService.setTitle('Leading Property Developer in Nagpur | Mukunda Infraventures');
 
-this.metaService.updateTag({
-  name: 'description',
-  content: 'Looking for a leading property developer in Nagpur? Mukunda Infraventures offers premium residential and commercial plots in prime locations. Contact us today!'
-});
+    this.titleService.setTitle(
+      'Contact Mukunda Infraventures in Nagpur | Get in Touch'
+    );
+
+    this.metaService.updateTag({
+      name: 'description',
+      content:
+        'Connect with Mukunda Infraventures for information about real estate projects and property opportunities in Nagpur. Reach out to discuss your requirements.'
+    });
+
   }
 
   //  name: string = '';
@@ -116,11 +121,4 @@ this.metaService.updateTag({
     alert("Your enquiry has been prepared for WhatsApp. Please send it from the WhatsApp tab.");
   }
 
-
-
 }
-
-
-
-
-
