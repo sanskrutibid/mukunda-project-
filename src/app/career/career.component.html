@@ -18,7 +18,7 @@
     <div class="col-lg-6 mb-4" *ngFor="let job of group">
       <div class="card h-100 shadow-sm">
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ job.title }}</h5>
+          <h3 class="card-title h5">{{ job.title }}</h3>
           <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
           <p class="card-text"><strong>Type:</strong> {{ job.type }}</p>
           <p class="card-text">{{ job.description }}</p>
@@ -32,7 +32,7 @@
 
   <!-- Application Form -->
  <form *ngIf="selectedJob" (ngSubmit)="submitApplication()" #applyFormElementRef #applyForm="ngForm" novalidate>
-    <h4 class="mb-3 text-primary">Apply for: {{ selectedJob.title }}</h4>
+    <h3 class="mb-3 text-primary h4">Apply for: {{ selectedJob.title }}</h3>
       <!-- Hidden field for job title -->
   <input type="hidden" name="jobTitle" [value]="selectedJob.title" />
     <div class="row">

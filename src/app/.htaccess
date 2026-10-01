@@ -1,13 +1,70 @@
+# =========================================================
+#  MUKUNDA - .htaccess
+#  Domain: mukundainfraventures.in (canonical = https, non-www)
+#  Single-hop 301 redirects + real 404 (HTML inside this file)
+# =========================================================
+
+# ---------------------------------------------------------
+# 404 page (HTML is written inside this ONE line)
+# Do NOT press Enter inside this line
+# ---------------------------------------------------------
+ErrorDocument 404 "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta name='robots' content='noindex, nofollow'><title>Page Not Found (404) | Mukunda Infraventures</title></head><body style='font-family:Arial,Helvetica,sans-serif;text-align:center;padding:70px 20px;color:#1a1a1a;'><h1 style='font-size:90px;color:#e60000;margin:0;'>404</h1><h2>Sorry, we could not find that page</h2><p style='font-size:18px;color:#444;'>The link may be broken, or the page may have been moved or removed.</p><p style='font-size:18px;'><a href='/' style='color:#e60000;font-weight:bold;'>Go to Home</a> | <a href='/projects' style='color:#1a1a1a;'>Projects</a> | <a href='/aboutus' style='color:#1a1a1a;'>About Us</a> | <a href='/contacts' style='color:#1a1a1a;'>Contact Us</a></p></body></html>"
+
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
+  # -------------------------------------------------------
+  # 1) Specific pages -> final https, non-www URL in ONE hop
+  # -------------------------------------------------------
+  RewriteRule ^home/?$    https://mukundainfraventures.in/         [R=301,L]
+  RewriteRule ^about/?$   https://mukundainfraventures.in/aboutus  [R=301,L]
+  RewriteRule ^contact/?$ https://mukundainfraventures.in/contacts [R=301,L]
+
+  # -------------------------------------------------------
+  # 2) Trailing slash removal (skips real folders)
+  #    Also covers /blog/1/ -> /blog/1
+  # -------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ https://mukundainfraventures.in/$1 [R=301,L]
+
+  # -------------------------------------------------------
+  # 3) http -> https and www -> non-www (everything else)
+  # -------------------------------------------------------
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://mukundainfraventures.in/$1 [R=301,L]
+
+  # -------------------------------------------------------
+  # 4) Your old rules: robots.txt, sitemap.xml, index.html
+  # -------------------------------------------------------
   RewriteCond %{REQUEST_URI} ^/robots\.txt$ [OR]
   RewriteCond %{REQUEST_URI} ^/sitemap\.xml$
   RewriteRule ^ - [L]
 
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+
+  # -------------------------------------------------------
+  # 5) Real files and folders (js, css, images...) are
+  #    served as they are
+  # -------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # -------------------------------------------------------
+  # 6) VALID Angular routes only -> app shell (HTTP 200)
+  #    Keep this list in sync with your Angular routes
+  # -------------------------------------------------------
+  RewriteRule ^(discover|aboutus|blog|projects|career|faq|contacts)$ /index.html [L]
+
+  # Blog detail pages: only /blog/1 to /blog/7 exist
+  RewriteRule ^blog/[1-7]$ /index.html [L]
+
+  # -------------------------------------------------------
+  # 7) Everything else -> real HTTP 404 (shows the page above)
+  #    The app shell is NOT served here
+  # -------------------------------------------------------
+  RewriteRule ^ - [R=404,L]
 </IfModule>

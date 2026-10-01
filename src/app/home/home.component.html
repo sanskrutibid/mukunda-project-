@@ -2,8 +2,9 @@
     <div id="carouselBackground" class="carousel slide carousel-fade w-100" data-bs-ride="carousel"
         data-bs-interval="5000">
         <div class="carousel-inner">
-            <div class="carousel-item" [class.active]="i === 0" *ngFor="let image of carouselImages; let i = index">
-                <img alt="top real estate developer in Nagpur" [src]="image.url" class="d-block w-100" [attr.id]="image.id" title="Mukunda Infraventures">
+            <div class="carousel-item" [class.active]="i === 0" *ngFor="let image of carouselImages; let i = index; trackBy: trackById">
+                <img alt="top real estate developer in Nagpur" [src]="image.url" class="d-block w-100" [attr.id]="image.id" title="Mukunda Infraventures"
+                    [attr.fetchpriority]="i === 0 ? 'high' : null" [attr.loading]="i === 0 ? 'eager' : 'lazy'" decoding="async">
                 <!-- <div class="carousel-caption-overlay">
                     <h1 class="wave-text-once">
                         <i>
@@ -116,10 +117,7 @@
                             <fa-icon [icon]="counter.icon"></fa-icon>
                         </div>
 
-                        <h2 class="count pt-4">
-                            {{ counter.done ? (counter.target | number) + '+' : (counter.displayValue | number:'1.0-0')
-                            }}
-                        </h2>
+                        <div class="count h2 pt-4">{{ counter.displayValue | number:'1.0-0' }}+</div>
 
                         <!-- Display the value directly -->
                         <p class="counter-p mb-0" style="padding-bottom: 50px;">
@@ -161,6 +159,7 @@
                         alt="Best real estate investment in Nagpur"
                         src="assets/images/image/vision-3.jpg"
                         class="img-fluid w-100 h-100 object-fit-cover"
+                        loading="lazy"
                         title="Mukunda Infraventures"
                     >
 
@@ -178,7 +177,7 @@
                         communities, ensuring exceptional value for our clients and stakeholders.
                     </p>
 
-                    <h5 class="mt-3 fst-italic">"Your Gateway to a New Life."</h5>
+                    <p class="h5 mt-3 fst-italic">"Your Gateway to a New Life."</p>
 
                 </div>
             </div>
@@ -197,6 +196,7 @@
                         alt="residential plots for sale in Nagpur"
                         src="assets/images/image/vision-2.jpg"
                         class="img-fluid w-100 h-100 object-fit-cover"
+                        loading="lazy"
                         title="Mukunda Infraventures"
                     >
 
@@ -215,7 +215,7 @@
                         expertise, and a commitment to excellence.
                     </p>
 
-                    <h5 class="mt-3 fst-italic">"Where Homes Happen."</h5>
+                    <p class="h5 mt-3 fst-italic">"Where Homes Happen."</p>
 
                 </div>
             </div>
@@ -234,6 +234,7 @@
                         alt="land developer in Nagpur"
                         src="assets/images/image/values-2.jpg"
                         class="img-fluid w-100 h-100 object-fit-cover"
+                        loading="lazy"
                         title="Mukunda Infraventures"
                     >
 
@@ -254,7 +255,7 @@
                         direction.
                     </p>
 
-                    <h5 class="mt-3 fst-italic">"Turning Dreams into Addresses."</h5>
+                    <p class="h5 mt-3 fst-italic">"Turning Dreams into Addresses."</p>
 
                 </div>
             </div>
@@ -266,7 +267,7 @@
 
         <div class="ratio ratio-16x9">
 
-            <video class="w-100 h-100" autoplay controls muted loop>
+            <video #heroVideo class="w-100 h-100" poster="assets/images/image/ayodhya.jpeg" preload="none" controls muted loop playsinline>
                 <source src="assets/vedio/Ayodhya.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -299,9 +300,9 @@
             Explore Our Newest Development
         </h2>
 
-        <h4 class="text-center text-dark m-2 p-2">
+        <p class="h4 text-center text-dark m-2 p-2">
             A fresh chapter in modern living and architectural brilliance.
-        </h4>
+        </p>
 
         <div class="gallery" data-aos="fade-up">
 
@@ -314,6 +315,7 @@
                         <img
                             alt="Top real estate development company in Nagpur"
                             [src]="item.src"
+                            loading="lazy"
                             title="Mukunda Infraventures"
                         />
 

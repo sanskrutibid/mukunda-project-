@@ -1,330 +1,1152 @@
+/* =========================================================
+   MUKUNDA INFRAVENTURES
+   FINAL NAVBAR CSS
+   =========================================================
+
+   FIXES:
+   1. NO SPACE BETWEEN LOGOS AND HOME
+   2. NO SPACE AFTER CONTACT US
+   3. NAVIGATION USES ONLY ITS CONTENT WIDTH
+   4. BOTH LOGOS ALWAYS VISIBLE
+   5. FIXED HEADER
+   6. RESPONSIVE MOBILE MENU
+
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
 * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Alevia', serif;
-
-}
-
-:host {
-    display: block;
-    overflow-x: hidden;
-}
-
-:root {
-    --primary-color: #e60000;
-    --secondary-color: black;
-    --bg-dark-blue: #3f4b68;
-    --bg-white: white;
-
-    /* Text color */
-    --primary-text: #e60000;
-    --text-gray: #f1f3f8bf;
-    --text-white: white;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    font-family: 'Alevia', serif;
-    overflow-x: hidden !important;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow-x: hidden !important;
 }
 
-a {
-    text-decoration: none;
+
+/* =========================================================
+   ANGULAR COMPONENT HOST
+   ========================================================= */
+
+:host {
+  display: block !important;
+
+  width: 100% !important;
+
+  height: 0 !important;
+  min-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
 }
 
-img:focus,
-a:focus,
-button:focus {
-    outline: none;
-    border: none;
-}
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: white
-}
-
-::-webkit-scrollbar-thumb {
-    background: #e60000;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+/* =========================================================
+   HEADER WRAPPER
+   ========================================================= */
 
 .header-wrapper {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
+  position: relative !important;
 
-#navbarNav {
-    margin: 0;
-    padding: 0;
-}
+  display: block !important;
 
-.header-wrapper .navbar-brand img {
-    max-width: 300px;
-    height: auto;
-}
+  width: 100% !important;
 
-.header-wrapper .navbar-toggler {
-    border: 0;
-    color: black;
-}
+  height: 0 !important;
+  min-height: 0 !important;
 
-.header-wrapper .navbar-toggler:focus {
-    box-shadow: none;
-}
+  margin: 0 !important;
+  padding: 0 !important;
 
-.header-wrapper .nav-item {
-    margin: 0 10px;
-}
+  border: 0 !important;
 
-.header-wrapper .nav-item .nav-link {
-    position: relative;
-    font-size: 25px;
-    font-weight: 500;
-    color: white;
-    display: inline-block;
-}
-
-.header-wrapper .nav-item .nav-link::after {
-    position: absolute;
-    content: '';
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #e60000;
-    transition: 0.3s;
-    bottom: 0;
-}
-
-.header-wrapper .nav-item .nav-link:active::after,
-.header-wrapper .nav-item .nav-link:hover:after {
-    width: 100%;
-    color: #e60000;
-}
-
-.header-wrapper .nav-item .nav-link:active,
-.header-wrapper .nav-item .nav-link:hover {
-    color: red;
-}
-
-/* Highlight active menu item */
-.header-wrapper .nav-item .nav-link.active {
-    color: #e60000 !important;
-    /* Red text */
-    font-weight: 600;
-    /* Bold for emphasis */
-}
-
-.header-wrapper .nav-item .nav-link.active::after {
-    width: 100%;
-    /* Show underline */
-    background: #e60000;
+  z-index: 99999 !important;
 }
 
 
-.header-scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    /* padding-top: 50px; */
-    margin-bottom: 0px !important;
-    background: rgba(0, 0, 0, 0.2);
-    color: white;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    /* box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2); */
-    z-index: 999;
+/* =========================================================
+   HEADER PSEUDO ELEMENTS
+   ========================================================= */
+
+.header-wrapper::before,
+.header-wrapper::after {
+  content: none !important;
+
+  display: none !important;
 }
 
-nav {
-    height: 80px;
+
+/* =========================================================
+   FIXED NAVBAR
+   ========================================================= */
+
+.mukunda-fixed-navbar {
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: 82px !important;
+  min-height: 82px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #ffffff !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+
+  z-index: 999999 !important;
 }
+
+
+/* =========================================================
+   NAVBAR HEAD
+   =========================================================
+
+   VERY IMPORTANT:
+
+   DO NOT USE:
+
+   justify-content: space-between
+
+   The entire navbar must remain packed from left to right.
+   ========================================================= */
+
+.navbar-head {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: flex-start !important;
+
+  flex-direction: row !important;
+
+  flex-wrap: nowrap !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: 82px !important;
+  min-height: 82px !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  gap: 0 !important;
+
+  border: 0 !important;
+}
+
+
+/* =========================================================
+   REMOVE BOOTSTRAP CONTAINER SPACING
+   ========================================================= */
+
+.navbar-head.container,
+.navbar-head.container-fluid {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* =========================================================
+   LOGO GROUP
+   ========================================================= */
+
+.mukunda-logo-group {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: flex-start !important;
+
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  width: auto !important;
+  max-width: max-content !important;
+
+  height: 82px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  gap: 8px !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  text-decoration: none !important;
+
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   LOGOS
+   ========================================================= */
+
+.mukunda-logo-group .img-logo {
+  display: block !important;
+
+  flex: 0 0 auto !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+
+  object-fit: contain !important;
+
+  object-position: center !important;
+
+  vertical-align: middle !important;
+}
+
+
+/* =========================================================
+   LOGO ONE
+   ========================================================= */
+
+.mukunda-logo-group .img-logo-one {
+  width: auto !important;
+
+  max-width: 195px !important;
+  max-height: 66px !important;
+
+  height: auto !important;
+}
+
+
+/* =========================================================
+   LOGO TWO
+   ========================================================= */
+
+.mukunda-logo-group .img-logo-two {
+  width: auto !important;
+
+  max-width: 185px !important;
+  max-height: 66px !important;
+
+  height: auto !important;
+}
+
+
+/* =========================================================
+   NAVBAR COLLAPSE
+   =========================================================
+
+   THIS IS THE MAIN FIX.
+
+   Bootstrap normally uses:
+
+   flex-grow: 1
+
+   That can create a huge empty area.
+
+   We force it to use ONLY the actual width
+   of the navigation menu.
+   ========================================================= */
 
 .navbar-collapse {
-    padding-top: -50px;
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: flex-start !important;
+
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+
+  flex-shrink: 0 !important;
+
+  flex-basis: auto !important;
+
+  width: max-content !important;
+
+  max-width: max-content !important;
+
+  min-width: 0 !important;
+
+  height: 82px !important;
+  min-height: 82px !important;
+
+  margin: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  gap: 0 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
 }
 
-.header-scrolled .nav-item .nav-link:active,
-.header-scrolled .nav-item .nav-link:hover {
-    color: #e60000;
+
+/* =========================================================
+   REMOVE ALL AUTO MARGINS FROM COLLAPSE
+   ========================================================= */
+
+.navbar-collapse,
+.navbar-collapse.show,
+.navbar-collapse.collapse {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  flex-grow: 0 !important;
+  flex-basis: auto !important;
+
+  width: max-content !important;
 }
 
-.navbar-brand img {
-    height: 40px;
-    /* Adjust logo height */
-    width: auto;
+
+/* =========================================================
+   NAVIGATION UL
+   ========================================================= */
+
+.menu-navbar-nav {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: flex-start !important;
+
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+
+  flex-shrink: 0 !important;
+
+  width: max-content !important;
+
+  max-width: max-content !important;
+
+  min-width: 0 !important;
+
+  height: 82px !important;
+
+  margin: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  gap: 0 !important;
+
+  list-style: none !important;
+
+  white-space: nowrap !important;
 }
+
+
+/* =========================================================
+   NAV ITEMS
+   ========================================================= */
+
+.menu-navbar-nav .nav-item {
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  width: auto !important;
+
+  height: 82px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.menu-nav-link {
+  position: relative !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  width: auto !important;
+
+  height: 82px !important;
+  min-height: 82px !important;
+
+  margin: 0 !important;
+
+  padding: 0 10px !important;
+
+  color: #111111 !important;
+
+  background: transparent !important;
+
+  border: 0 !important;
+
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+
+  line-height: normal !important;
+
+  letter-spacing: 0.2px !important;
+
+  text-decoration: none !important;
+
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.menu-nav-link:hover {
+  color: #e60000 !important;
+
+  background: transparent !important;
+
+  text-decoration: none !important;
+}
+
+
+/* =========================================================
+   ACTIVE
+   ========================================================= */
+
+.menu-nav-link.active {
+  color: #e60000 !important;
+
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   UNDERLINE
+   ========================================================= */
+
+.menu-nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  bottom: 10px;
+
+  height: 2px;
+
+  background: #e60000;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.25s ease;
+}
+
+
+.menu-nav-link:hover::after,
+.menu-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
 
 .svg-menu-toggler {
-    background: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    margin-right: 20px;
-}
+  display: none !important;
 
-.svg-menu-toggler:hover svg rect {
-    fill: #e60000;
-}
+  align-items: center !important;
+  justify-content: center !important;
 
-.img-logo {
-    height: 80px !important;
-    width: 100px !important;
-}
+  flex: 0 0 auto !important;
 
-/* Responsive page */
+  width: 44px !important;
+  height: 44px !important;
 
-@media (max-width:1024px) {
-    .header-wrapper img {
-        width: 130px
-    }
+  margin: 0 10px 0 auto !important;
 
-    .navbar {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        height: 83px;
-    }
+  padding: 7px !important;
 
-    /* .header-scrolled {
-        background: rgba(0, 0, 0, 0.2) !important;
-        backdrop-filter: blur(6px) !important;
-        -webkit-backdrop-filter: blur(6px) !important;
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2) !important;
-    } */
+  background: #3f4b68 !important;
+
+  border: 0 !important;
+
+  outline: none !important;
+
+  border-radius: 4px !important;
+
+  cursor: pointer !important;
+
+  z-index: 1000000 !important;
 }
 
 
-@media (max-width:991px) {
-    .navbar {
-        margin-top: 0 !important;
-        /* padding-top: 50px; */
-    }
+/* =========================================================
+   MOBILE SVG
+   ========================================================= */
 
-    /* .navbar-custom .container {
-        margin-top: -50px;
-    } */
-    .header-wrapper .menu-navbar-nav {
-        text-align: center;
-        background: white;
-        color: black;
-        padding: 0px;
-        margin: 0px;
-    }
+.svg-menu-toggler svg {
+  display: block !important;
 
-    .header-wrapper .nav-item .nav-link {
-        margin-top: 15px;
-    }
+  width: 30px !important;
+  height: 30px !important;
 
-    .header-wrapper .menu-navbar-nav {
-        text-align: center;
-        background: black;
-        color: white;
-        padding: 10px;
-        font-size: 12px;
-        border: 2px solid red;
-    }
-
-    .header-wrapper .menu-navbar-nav .nav-item .nav-link::after {
-        position: absolute;
-        content: '';
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #e60000;
-        transition: 0.3s;
-        bottom: 0;
-    }
-
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-@media(max-width:375px) {
 
-    .header-wrapper .navbar-toggler {
-        text-align: center;
-        color: black;
-        border: 1px solid black;
-        margin-right: 20px;
-        align-items: end;
-    }
+/* =========================================================
+   DESKTOP 1200+
+   ========================================================= */
 
-    .header-wrapper img {
-        width: 130px
-    }
+@media (min-width: 1200px) {
 
-    .header-wrapper .menu-navbar-nav {
-        text-align: center;
-        background: black;
-        color: white;
-        padding: 10px;
-        font-size: 12px;
-        border: 2px solid red;
-    }
+  .mukunda-fixed-navbar {
+    height: 82px !important;
+  }
 
-    .header-wrapper .menu-navbar-nav .nav-item .nav-link::after {
-        position: absolute;
-        content: '';
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #e60000;
-        transition: 0.3s;
-        bottom: 0;
-    }
 
-    /* nav {
-        margin-top: -50px;
-    } */
+  .navbar-head {
+    height: 82px !important;
+
+    justify-content: flex-start !important;
+
+    padding: 0 !important;
+  }
+
+
+  .mukunda-logo-group {
+    gap: 8px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .navbar-collapse {
+    width: max-content !important;
+
+    max-width: max-content !important;
+
+    flex: 0 0 auto !important;
+
+    flex-grow: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  .menu-navbar-nav {
+    width: max-content !important;
+
+    max-width: max-content !important;
+
+    flex: 0 0 auto !important;
+
+    flex-grow: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  .menu-nav-link {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-    .header-wrapper .navbar-toggler {
-        text-align: center;
-        color: black;
-        border: 1px solid black;
-        margin-right: 20px;
-        align-items: end;
-    }
 
-    .header-wrapper img {
-        width: 140px;
-    }
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
 
-    .header-wrapper .menu-navbar-nav {
-        text-align: center;
-        background: black;
-        color: white;
-        padding: 12px;
-        font-size: 13px;
-        border: 2px solid red;
-    }
+@media (min-width: 992px) and (max-width: 1199px) {
 
-    .header-wrapper .menu-navbar-nav .nav-item .nav-link::after {
-        position: absolute;
-        content: '';
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #e60000;
-        transition: 0.3s;
-        bottom: 0;
-    }
+  .navbar-head {
+    height: 82px !important;
+
+    justify-content: flex-start !important;
+
+    padding: 0 !important;
+  }
 
 
+  .mukunda-logo-group {
+    gap: 5px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-one {
+    max-width: 160px !important;
+    max-height: 58px !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-two {
+    max-width: 150px !important;
+    max-height: 58px !important;
+  }
+
+
+  .navbar-collapse {
+    width: max-content !important;
+
+    max-width: max-content !important;
+
+    flex: 0 0 auto !important;
+
+    flex-grow: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  .menu-navbar-nav {
+    width: max-content !important;
+
+    max-width: max-content !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  .menu-nav-link {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+
+    font-size: 14px !important;
+  }
 }
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  /* ---------------------------------------------
+     HEADER
+     --------------------------------------------- */
+
+  .mukunda-fixed-navbar {
+    height: 72px !important;
+    min-height: 72px !important;
+  }
+
+
+  /* ---------------------------------------------
+     HEAD
+     --------------------------------------------- */
+
+  .navbar-head {
+    height: 72px !important;
+    min-height: 72px !important;
+
+    width: 100% !important;
+
+    justify-content: space-between !important;
+
+    padding: 0 10px !important;
+  }
+
+
+  /* ---------------------------------------------
+     LOGOS
+     --------------------------------------------- */
+
+  .mukunda-logo-group {
+    height: 72px !important;
+
+    gap: 8px !important;
+
+    max-width: calc(100% - 55px) !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-one {
+    max-width: 145px !important;
+    max-height: 52px !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-two {
+    max-width: 135px !important;
+    max-height: 52px !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE BUTTON
+     --------------------------------------------- */
+
+  .svg-menu-toggler {
+    display: flex !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE COLLAPSE
+     --------------------------------------------- */
+
+  .navbar-collapse {
+    position: absolute !important;
+
+    top: 72px !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    display: none !important;
+
+    flex: none !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    background: #ffffff !important;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+
+    padding: 10px 15px 15px !important;
+
+    z-index: 999998 !important;
+  }
+
+
+  .navbar-collapse.show {
+    display: block !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE LIST
+     --------------------------------------------- */
+
+  .menu-navbar-nav {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    justify-content: flex-start !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 0 !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE ITEMS
+     --------------------------------------------- */
+
+  .menu-navbar-nav .nav-item {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+
+
+  .menu-navbar-nav .nav-item:last-child {
+    border-bottom: none !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE LINKS
+     --------------------------------------------- */
+
+  .menu-nav-link {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    min-height: 52px !important;
+
+    margin: 0 !important;
+
+    padding: 14px 10px !important;
+
+    font-size: 15px !important;
+  }
+
+
+  /* ---------------------------------------------
+     MOBILE UNDERLINE
+     --------------------------------------------- */
+
+  .menu-nav-link::after {
+    left: 10px !important;
+
+    right: auto !important;
+
+    bottom: 7px !important;
+
+    width: 30px !important;
+
+    height: 2px !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .mukunda-fixed-navbar {
+    height: 65px !important;
+    min-height: 65px !important;
+  }
+
+
+  .navbar-head {
+    height: 65px !important;
+    min-height: 65px !important;
+
+    padding: 0 8px !important;
+  }
+
+
+  .mukunda-logo-group {
+    height: 65px !important;
+
+    gap: 5px !important;
+
+    max-width: calc(100% - 50px) !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-one {
+    max-width: 112px !important;
+    max-height: 44px !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-two {
+    max-width: 105px !important;
+    max-height: 44px !important;
+  }
+
+
+  .svg-menu-toggler {
+    width: 40px !important;
+    height: 40px !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+
+    padding: 6px !important;
+  }
+
+
+  .svg-menu-toggler svg {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+
+  .navbar-collapse {
+    top: 65px !important;
+
+    max-height: calc(100vh - 65px) !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .navbar-head {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+
+  .mukunda-logo-group {
+    gap: 3px !important;
+
+    max-width: calc(100% - 48px) !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-one {
+    max-width: 95px !important;
+    max-height: 40px !important;
+  }
+
+
+  .mukunda-logo-group .img-logo-two {
+    max-width: 90px !important;
+    max-height: 40px !important;
+  }
+
+
+  .svg-menu-toggler {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL BOOTSTRAP OVERRIDES
+   =========================================================
+
+   These are intentionally VERY strong because Bootstrap
+   can add flex-grow, margins and spacing to navbar elements.
+   ========================================================= */
+
+.mukunda-fixed-navbar .navbar-head,
+.mukunda-fixed-navbar .navbar-head.container,
+.mukunda-fixed-navbar .navbar-head.container-fluid {
+  display: flex !important;
+
+  justify-content: flex-start !important;
+
+  gap: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* ---------------------------------------------
+   LOGO FINAL
+   --------------------------------------------- */
+
+.mukunda-fixed-navbar .mukunda-logo-group {
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* ---------------------------------------------
+   COLLAPSE FINAL
+   --------------------------------------------- */
+
+.mukunda-fixed-navbar .navbar-collapse {
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  flex-basis: auto !important;
+
+  width: max-content !important;
+
+  max-width: max-content !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* ---------------------------------------------
+   MENU FINAL
+   --------------------------------------------- */
+
+.mukunda-fixed-navbar .menu-navbar-nav {
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  width: max-content !important;
+
+  max-width: max-content !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  justify-content: flex-start !important;
+}
+
+
+/* ---------------------------------------------
+   NAV ITEMS FINAL
+   --------------------------------------------- */
+
+.mukunda-fixed-navbar .menu-navbar-nav .nav-item {
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* ---------------------------------------------
+   LINKS FINAL
+   --------------------------------------------- */
+
+.mukunda-fixed-navbar .menu-nav-link {
+  flex: 0 0 auto !important;
+
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   DO NOT ADD THESE TO THIS NAVBAR
+
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: space-between;
+   justify-content: center;
+   flex-grow: 1;
+
+   ========================================================= */
+
+
+/* =========================================================
+   END
+   ========================================================= */

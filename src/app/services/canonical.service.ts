@@ -1,5 +1,5 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -12,20 +12,12 @@ export class CanonicalService {
 
   constructor(
     private router: Router,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: object
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
   init(): void {
 
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
-    // Set canonical for the current URL
-    this.setCanonical(this.router.url);
-
-    // Update canonical whenever Angular route changes
+    // Update canonical whenever Angular navigation completes
     this.router.events
       .pipe(
         filter(
@@ -36,6 +28,10 @@ export class CanonicalService {
       .subscribe(event => {
         this.setCanonical(event.urlAfterRedirects);
       });
+
+    // Set canonical for the initial route.
+    // This also runs during SSR/prerendering.
+    this.setCanonical(this.router.url);
   }
 
   private setCanonical(url: string): void {
@@ -52,29 +48,44 @@ export class CanonicalService {
         'link[rel="canonical"]'
       );
 
-    // Create canonical tag if it does not exist
+    // Create canonical tag if it does not already exist
     if (!canonicalLink) {
+
       canonicalLink = this.document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      canonicalLink.setAttribute('data-dynamic-canonical', 'true');
+
+      canonicalLink.setAttribute(
+        'rel',
+        'canonical'
+      );
+
+      canonicalLink.setAttribute(
+        'data-dynamic-canonical',
+        'true'
+      );
 
       this.document.head.appendChild(canonicalLink);
     }
 
-    canonicalLink.setAttribute('href', canonicalUrl);
+    // Update canonical URL
+    canonicalLink.setAttribute(
+      'href',
+      canonicalUrl
+    );
   }
 
   private cleanUrl(url: string): string {
 
     // Remove query parameters and hash
-    let path = url.split('?')[0].split('#')[0];
+    let path = url
+      .split('?')[0]
+      .split('#')[0];
 
-    // Ensure URL starts with /
+    // Make sure path starts with /
     if (!path.startsWith('/')) {
       path = '/' + path;
     }
 
-    // Remove trailing slash except for homepage
+    // Remove trailing slash except homepage
     if (path !== '/') {
       path = path.replace(/\/+$/, '');
     }
