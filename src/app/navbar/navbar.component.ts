@@ -26,13 +26,13 @@ import { RouterModule } from '@angular/router';
           (click)="closeMobileMenu()"
         >
           <img
-            src="assets/images/mukunda_logo_1.png"
+            src="assets/images/mukunda_logo_1.webp"
             alt="Mukunda Group"
             class="mk-logo mk-logo-one"
           />
 
           <img
-            src="assets/images/logo_MUKUNDA.png"
+            src="assets/images/logo_mukunda.webp"
             alt="Mukunda Infraventures"
             class="mk-logo mk-logo-two"
           />

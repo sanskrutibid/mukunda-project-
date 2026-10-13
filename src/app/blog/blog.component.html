@@ -3,7 +3,7 @@
 <section
   class="header"
   [ngStyle]="{
-    'background-image': 'url(assets/images/image/blog.jpg)'
+    'background-image': 'url(assets/images/image/blog.webp)'
   }"
 >
 
@@ -20,7 +20,7 @@
       <div class="image-container my-5 p-4 border-2">
 
         <img
-          src="assets/images/image/blog-head.jpeg"
+          src="assets/images/image/blog-head.webp"
           alt="top real estate developer in Nagpur"
           title="Mukunda Infraventures"
           class="img-fluid border-2"
@@ -40,7 +40,7 @@
 
           <!-- 1. Welcome to Blog -->
           <img
-            src="/assets/images/U-Logo.png"
+            src="/assets/images/u-logo.webp"
             style="width: 50px; margin-bottom: 15px;"
             alt="Leading property developer in Nagpur"
             title="Mukunda Infraventures"
@@ -179,8 +179,9 @@ viewBox="0 0 1920 192.275"
         </p>
         -->
 
+        <!-- CHANGED: blog.id ki jagah blog heading ka slug -->
         <a
-          [routerLink]="['/blog', blog.id]"
+          [routerLink]="['/blog', slugOf(blog)]"
           class="btn btn-danger rounded-pill"
         >
           Read More
@@ -340,7 +341,7 @@ viewBox="0 0 1920 192.275"
 
         <!-- 2. Unlock Exceptional Investment Potential -->
         <img
-          src="/assets/images/U-Logo.png"
+          src="/assets/images/u-logo.webp"
           style="width: 50px; margin-bottom: 15px;"
           alt="Best real estate investment in Nagpur"
           title="Mukunda Infraventures"
@@ -454,7 +455,7 @@ viewBox="0 0 1920 192.275"
     <div class="image-container p-5">
 
       <img
-        src="assets/images/image/blog-head.jpg"
+        src="assets/images/image/blog-head.webp"
         alt="residential plots for sale in Nagpur"
         title="Mukunda Infraventures"
         class="img-fluid"
@@ -494,7 +495,7 @@ viewBox="0 0 1920 192.275"
 
         <!-- 3. Welcome to Mukunda Infraventure & Projects Pvt. Ltd. -->
         <img
-          src="/assets/images/U-Logo.png"
+          src="/assets/images/u-logo.webp"
           style="width: 50px; margin-bottom: 15px;"
           alt="Top real estate development company in Nagpur"
           title="Mukunda Infraventures"
@@ -564,7 +565,7 @@ viewBox="0 0 1920 192.275"
     >
 
       <img
-        src="assets/images/image/blog-j.jpg"
+        src="assets/images/image/blog-j.webp"
         alt="commercial plot for sale in Nagpur"
         title="Mukunda Infraventures"
         class="img-fluid"
@@ -587,7 +588,7 @@ viewBox="0 0 1920 192.275"
 
         <!-- 4. The Journey to Your Dream Home Starts Here -->
         <img
-          src="/assets/images/U-Logo.png"
+          src="/assets/images/u-logo.webp"
           style="width: 50px; margin-bottom: 15px;"
           alt="land development company in Nagpur"
           title="Mukunda Infraventures"
@@ -697,7 +698,7 @@ viewBox="0 0 1920 192.275"
 <section
   class="download mt-5 mb-5"
   [ngStyle]="{
-    'background-image': 'url(assets/images/image/blog.jpg)'
+    'background-image': 'url(assets/images/image/blog.webp)'
   }"
   data-aos="fade-left"
 >
@@ -714,7 +715,7 @@ viewBox="0 0 1920 192.275"
     >
 
       <img
-        src="assets/images/image/karmabhumi.png"
+        src="assets/images/image/karmabhumi.webp"
         alt="industrial development project in Nagpur"
         title="Mukunda Infraventures"
         class="img-fluid"

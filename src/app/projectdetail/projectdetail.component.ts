@@ -41,7 +41,7 @@ export class ProjectdetailComponent implements OnInit, OnDestroy {
   private readonly heroPreloadId = 'hero-preload-link';
 
   // Must match the background-image used in the banner section of the template
-  private readonly heroImage = 'assets/images/image/carousel-3.jpg';
+  private readonly heroImage = 'assets/images/image/carousel-3.webp';
 
 
   constructor(

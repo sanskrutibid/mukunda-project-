@@ -1,4 +1,3 @@
-
 import {
   Component,
   Inject,
@@ -21,6 +20,10 @@ import { FooterComponent } from './footer/footer.component';
 import { StickyContactComponent } from './sticky-contact/sticky-contact.component';
 
 import { filter } from 'rxjs/operators';
+
+import { SeoService } from './seo.service';
+import { SEO_DATA } from './seo-data';
+import { SchemaService } from './schema.service';
 
 declare const AOS: any;
 
@@ -52,7 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: object
+    @Inject(PLATFORM_ID) private platformId: object,
+    private seo: SeoService,
+    private schema: SchemaService
   ) {
 
     this.isBrowser =
@@ -98,6 +103,65 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    /*
+     * JSON-LD schema (schema.service.ts).
+     * Har route change par sahi schema apne aap lagta hai.
+     * Server/prerender par bhi chalta hai (isBrowser check nahi hai,
+     * taaki schema static HTML me aaye).
+     */
+    this.router.events
+      .pipe(
+        filter(
+          event =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: any) => {
+
+        this.schema.applyForUrl(
+          event.urlAfterRedirects as string
+        );
+
+      });
+
+
+    /*
+     * SEO overrides from seo-data.ts.
+     * Sirf un pages par chalta hai jo SEO_DATA me hain.
+     * setTimeout isliye, taaki page component ka apna
+     * purana title/description pehle set ho jaye aur
+     * ye naya wala uske baad lage.
+     */
+    this.router.events
+      .pipe(
+        filter(
+          event =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: any) => {
+
+        const path =
+          (event.urlAfterRedirects as string)
+            .split('?')[0]
+            .split('#')[0]
+            .replace(/\/+$/, '') || '/';
+
+        const data = SEO_DATA[path];
+
+        if (!data) {
+          return;
+        }
+
+        setTimeout(() => {
+
+          this.seo.applyOverrides(path, data);
+
+        }, 0);
+
+      });
+
 
     /*
      * Route/page tracking.
@@ -183,8 +247,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
               localStorage.getItem(
                 'bounces'
               ) || '0',
-                10
-              );
+              10
+            );
 
 
           const visits =
@@ -192,8 +256,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
               localStorage.getItem(
                 'visits'
               ) || '0',
-                10
-              );
+              10
+            );
 
 
           /*
@@ -530,5 +594,3 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 }
-
-

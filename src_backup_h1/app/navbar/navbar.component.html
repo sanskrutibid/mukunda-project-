@@ -1,0 +1,226 @@
+<!-- =========================================================
+     MUKUNDA INFRAVENTURES
+     FIXED HEADER
+     NO EXTRA SPACE ABOVE PAGE
+     BOTH LOGOS ALWAYS VISIBLE
+     ========================================================= -->
+
+<header class="header-wrapper">
+
+  <nav class="mukunda-fixed-navbar">
+
+    <div class="navbar-head">
+
+      <!-- =====================================================
+           LOGOS
+           ===================================================== -->
+
+      <a
+        class="mukunda-logo-group"
+        routerLink="/"
+        (click)="closeMenu()"
+        aria-label="Mukunda Infraventures Home"
+      >
+
+        <img
+          src="assets/images/mukunda_logo_1.webp"
+          class="img-logo img-logo-one"
+          alt="Mukunda Infraventures"
+        />
+
+        <img
+          src="assets/images/logo_mukunda.webp"
+          class="img-logo img-logo-two"
+          alt="Mukunda"
+        />
+
+      </a>
+
+
+      <!-- =====================================================
+           MOBILE MENU BUTTON
+           ===================================================== -->
+
+      <button
+        class="svg-menu-toggler"
+        type="button"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isMenuOpen"
+        (click)="toggleMenu()"
+      >
+
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 100 80"
+          fill="#ffffff"
+          aria-hidden="true"
+        >
+
+          <rect
+            x="0"
+            y="0"
+            width="100"
+            height="10"
+          ></rect>
+
+          <rect
+            x="0"
+            y="30"
+            width="100"
+            height="10"
+          ></rect>
+
+          <rect
+            x="0"
+            y="60"
+            width="100"
+            height="10"
+          ></rect>
+
+        </svg>
+
+      </button>
+
+
+      <!-- =====================================================
+           NAVIGATION
+           ===================================================== -->
+
+      <div
+        class="navbar-collapse"
+        [ngClass]="{ 'show': isMenuOpen }"
+      >
+
+        <ul class="menu-navbar-nav">
+
+
+          <!-- HOME -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="closeMenu()"
+            >
+              Home
+            </a>
+
+          </li>
+
+
+          <!-- DISCOVER -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/discover"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              Discover
+            </a>
+
+          </li>
+
+
+          <!-- ABOUT US -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/aboutus"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              About Us
+            </a>
+
+          </li>
+
+
+          <!-- BLOG -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/blog"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              Blog
+            </a>
+
+          </li>
+
+
+          <!-- PROJECTS -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/projects"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              Projects
+            </a>
+
+          </li>
+
+
+          <!-- CAREERS -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/career"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              Careers
+            </a>
+
+          </li>
+
+
+          <!-- FAQ -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/faq"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              FAQ
+            </a>
+
+          </li>
+
+
+          <!-- CONTACT US -->
+          <li class="nav-item">
+
+            <a
+              class="menu-nav-link"
+              routerLink="/contacts"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+            >
+              Contact Us
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>

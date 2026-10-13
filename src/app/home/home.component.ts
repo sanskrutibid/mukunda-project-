@@ -84,23 +84,23 @@ export class HomeComponent
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  aboutImage: string = 'assets/images/image/u_logo_image.png';
+  aboutImage: string = 'assets/images/image/u_logo_image.webp';
   aboutText: string = '';
 
   visionText: string = '';
   visionTitle: string = '';
   visionImage: string =
-    'assets/images/image/Keshavam-City9.jpg';
+    'assets/images/image/keshavam-city9.webp';
 
   missionText: string = '';
   missionTitle: string = '';
   missionImage: string =
-    'assets/images/image/Dev-Bhoomi-View-3.jpg';
+    'assets/images/image/dev-bhoomi-view-3.webp';
 
   valuesTitle: string = '';
   valuesText: string = '';
   valuesImage: string =
-    'assets/images/image/Dev-Bhoomi-View-3.jpg';
+    'assets/images/image/dev-bhoomi-view-3.webp';
 
   vimeoUrl: string = '';
 
@@ -151,7 +151,7 @@ export class HomeComponent
 
   images = [
     {
-      src: 'assets/images/image/karmabhoomi1.PNG',
+      src: 'assets/images/image/karmabhoomi1.webp',
       label: 'KARMABHOOMI',
       link: '/karmabhumi'
     },
@@ -161,22 +161,22 @@ export class HomeComponent
       link: '/vraj'
     },
     {
-      src: 'assets/images/image/ayodhya.jpeg',
+      src: 'assets/images/image/ayodhya.webp',
       label: 'AYODHYA',
       link: '/ayodhya'
     },
     {
-      src: 'assets/images/image/dwarka.jpg',
+      src: 'assets/images/image/dwarka.webp',
       label: 'DWARKA',
       link: '/dwarka'
     },
     {
-      src: 'assets/images/image/Keshavam-City9.jpg',
+      src: 'assets/images/image/keshavam-city9.webp',
       label: 'MUKUNDA KESHAVAM CITY 9',
       link: '/keshavam-city-9'
     },
     {
-      src: 'assets/images/image/Keshavam-City-9.jpg',
+      src: 'assets/images/image/keshavam-city-9.webp',
       label: 'MUKUNDA KESHAVAM CITY 10',
       link: '/keshavam-city-10'
     }
@@ -290,7 +290,7 @@ export class HomeComponent
 
       this.visionImage =
         storedvisionImage ||
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
 
       // Mission section
       const storedMissionTitle =
@@ -311,7 +311,7 @@ export class HomeComponent
 
       this.missionImage =
         storedMissionImage ||
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
 
       // Values section
       const storedValuesTitle =
@@ -332,7 +332,7 @@ export class HomeComponent
 
       this.valuesImage =
         storedValuesImage ||
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
 
     } else {
 
@@ -348,7 +348,7 @@ export class HomeComponent
         'At Mukunda Infraventures & Projects Private Limited, our vision is to revolutionize real estate experiences with values by combining innovative solutions with unwavering integrity. We are committed to transforming properties into thriving communities, ensuring exceptional value for our clients and stakeholders. we aspire to be the preferred choice in real estate, setting new standards  the future of urban living.';
 
       this.visionImage =
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
 
       this.missionTitle = 'Our Mission';
 
@@ -356,7 +356,7 @@ export class HomeComponent
         'At Mukunda Infraventures & Projects Private Limited, Our mission is to deliver high-quality, affordable, and thoughtfully designed real estate solutions that exceed expectations. With a commitment to timely delivery and customer satisfaction, we aim to redefine the urban living experience. We focus on enhancing lifestyles through intelligent planning, and a deep understanding of our clients’ needs and aspirations.';
 
       this.missionImage =
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
 
       this.valuesTitle = 'Our Values';
 
@@ -364,7 +364,7 @@ export class HomeComponent
         'Integrity: We act with honesty and transparency in all our dealings. Innovation: We embrace change and strive for continuous improvement. Quality: We deliver excellence in every square foot we build. Sustainability:We build responsibly with future in mind. Customer-Centricity: Our clients are at the core of our business; their dreams shape our direction.';
 
       this.valuesImage =
-        'assets/images/image/Dev-Bhoomi-View-3.jpg';
+        'assets/images/image/dev-bhoomi-view-3.webp';
     }
 
     // Video section
@@ -390,15 +390,15 @@ export class HomeComponent
           this.carouselImages = [
             {
               id: 1,
-              url: '/assets/images/image/carousel-1.jpg'
+              url: '/assets/images/image/carousel-1.webp'
             },
             {
               id: 2,
-              url: '/assets/images/image/carousel-2.jpg'
+              url: '/assets/images/image/carousel-2.webp'
             },
             {
               id: 3,
-              url: '/assets/images/image/carousel-3.jpg'
+              url: '/assets/images/image/carousel-3.webp'
             }
           ];
         }
@@ -406,15 +406,15 @@ export class HomeComponent
         this.carouselImages = [
           {
             id: 1,
-            url: '/assets/images/image/carousel-1.jpg'
+            url: '/assets/images/image/carousel-1.webp'
           },
           {
             id: 2,
-            url: '/assets/images/image/carousel-2.jpg'
+            url: '/assets/images/image/carousel-2.webp'
           },
           {
             id: 3,
-            url: '/assets/images/image/carousel-3.jpg'
+            url: '/assets/images/image/carousel-3.webp'
           }
         ];
       }
@@ -427,15 +427,15 @@ export class HomeComponent
       this.carouselImages = [
         {
           id: 1,
-          url: '/assets/images/image/carousel-1.jpg'
+          url: '/assets/images/image/carousel-1.webp'
         },
         {
           id: 2,
-          url: '/assets/images/image/carousel-2.jpg'
+          url: '/assets/images/image/carousel-2.webp'
         },
         {
           id: 3,
-          url: '/assets/images/image/carousel-3.jpg'
+          url: '/assets/images/image/carousel-3.webp'
         }
       ];
     }

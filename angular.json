@@ -1,3 +1,5 @@
+
+
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
@@ -37,7 +39,17 @@
                 "output": "."
               },
               {
+                "glob": "llms.txt",
+                "input": "public",
+                "output": "."
+              },
+              {
                 "glob": "sitemap.xml",
+                "input": "public",
+                "output": "."
+              },
+              {
+                "glob": ".htaccess",
                 "input": "public",
                 "output": "."
               }
@@ -161,3 +173,5 @@
     "analytics": false
   }
 }
+
+

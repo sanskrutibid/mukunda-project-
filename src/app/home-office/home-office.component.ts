@@ -33,12 +33,12 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
   activeIndex = 0;
 
   projectList = [
-    { name: 'Karmabhoomi', image: 'assets/images/image/Karma-1.jpg', link: '/karmabhumi' },
-    { name: 'Ayodhya', image: 'assets/images/image/ayodhya-slider.jpg', link: '/ayodhya' },
-    { name: 'Mukunda Keshavam City 9', image: 'assets/images/image/Keshavam-City9.jpg', link: '/keshavam-city-9' },
-    { name: 'Mukunda Keshavam City 10', image: 'assets/images/image/Keshavam-City-7-View-4.jpg', link: '/keshavam-city-10' },
-    { name: 'Vraj', image: 'assets/images/image/Vraj-11.jpg', link: '/vraj' },
-    { name: 'Dwarka', image: 'assets/images/image/Dwar-2.jpg', link: '/dwarka' }
+    { name: 'Karmabhoomi', image: 'assets/images/image/karma-1.webp', link: '/karmabhumi' },
+    { name: 'Ayodhya', image: 'assets/images/image/ayodhya-slider.webp', link: '/ayodhya' },
+    { name: 'Mukunda Keshavam City 9', image: 'assets/images/image/keshavam-city9.webp', link: '/keshavam-city-9' },
+    { name: 'Mukunda Keshavam City 10', image: 'assets/images/image/keshavam-city-7-view-4.webp', link: '/keshavam-city-10' },
+    { name: 'Vraj', image: 'assets/images/image/vraj-11.webp', link: '/vraj' },
+    { name: 'Dwarka', image: 'assets/images/image/dwar-2.webp', link: '/dwarka' }
   ];
 
 

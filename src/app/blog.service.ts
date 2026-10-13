@@ -34,7 +34,7 @@ export class BlogService {
       paragraph11: 'This shift wouldn not be possible without developers willing to go beyond conventional methods. Companies like Mukunda Infraventure & Projects Pvt. Ltd. are playing a key role in reshaping city landscapes through thoughtfully designed, well-executed multi-use townships.By focusing on urban utility, long-term durability, and people-first planning, their projects go beyond just real estate. They become part of how cities grow responsibly. What makes their approach stand out is their clarity in vision — they aren’t just building for today, but for the next generation of residents and businesses. They plan each space to be functional, future-ready, and adaptable — without losing sight of comfort and affordability.',
       heading12: 'Building Smarter Cities, One Block at a Time:',
       paragraph12: 'From highways that connect regions to high-rises that support whole communities, India is entering a new era of urban development. Multi-use projects aren’t just a trend — they’re a necessity.As cities get denser and time becomes more valuable, the appeal of living, working, and socializing in the same environment will only grow. And with thoughtful execution from the right developers, this model has the power to reshape the future of our cities.',
-      image: 'assets/images/image/blog-image-1.png',
+      image: 'assets/images/image/blog-image-1.webp',
       date: new Date('2025-04-26')
     },
     {
@@ -103,7 +103,7 @@ If the answer is “yes,” the vision has translated into reality.
 By combining modern planning with real human needs—efficient layouts, strong utility planning, nature integration, and scalable design—Mukunda Infraventure delivers more than just properties. It delivers communities built for the long haul.
 Because real estate done right isn’t about the land—it’s about the life built on it.
 `,
-      image: 'assets/images/image/blog-image-2.png',
+      image: 'assets/images/image/blog-image-2.webp',
       date: new Date('2025-04-25')
     },
     {
@@ -134,7 +134,7 @@ Because real estate done right isn’t about the land—it’s about the life bu
       paragraph11: 'In this ever-evolving real estate landscape, Mukunda Infraventure & Projects Pvt. Ltd. stands out as a name synonymous with transformation. With a strong foundation in engineering excellence and a bold, forward-thinking approach, the company has consistently delivered projects that are sustainable, strategically located, and community-focused.',
       heading12: '',
       paragraph12: 'Whether it is premium housing, infrastructure, or mixed-use townships, Mukunda Infraventure commits to blending world-class planning with practical, human-centered living experiences—paving the way from open land to vibrant, thriving communities.',
-      image: 'assets/images/image/blog-image-3.png',
+      image: 'assets/images/image/blog-image-3.webp',
       date: new Date('2025-04-23')
     },
     {
@@ -194,7 +194,7 @@ From large-scale real estate developments to impactful infrastructure projects, 
       paragraph11: '',
       heading12: '',
       paragraph12: '',
-      image: 'assets/images/image/blog-image-4.png',
+      image: 'assets/images/image/blog-image-4.webp',
       date: new Date('2025-04-23')
     },
     {
@@ -262,7 +262,7 @@ Ready to invest in Nagpur? Explore the right plot for your future with Mukunda I
       paragraph11: '',
       heading12: '',
       paragraph12: '',
-      image: 'assets/images/image/blog-image-5.png',
+      image: 'assets/images/image/blog-image-5.webp',
       date: new Date('2026-09-07')
     },
     {
@@ -321,7 +321,7 @@ Most importantly, avoid choosing a property only because someone describes an ar
 Ready to invest in Nagpur? Explore the right plot for your future with Mukunda Infraventures — where smart investments begin with the right choice.`,
       heading12: '',
       paragraph12: '',
-      image: 'assets/images/image/blog-image-6.png',
+      image: 'assets/images/image/blog-image-6.webp',
       date: new Date('2026-09-07')
     },
     {
@@ -376,7 +376,7 @@ Ready to invest in Nagpur? Explore the right plot for your future with Mukunda I
       paragraph11: '',
       heading12: '',
       paragraph12: '',
-      image: 'assets/images/image/blog-image-7.png',
+      image: 'assets/images/image/blog-image-7.webp',
       date: new Date('2026-09-06')
     },
   ];

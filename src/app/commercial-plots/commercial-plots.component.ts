@@ -18,7 +18,7 @@ export class CommercialPlotsComponent implements OnInit {
       badge: 'High Growth Corridor',
       subtitle: 'Strategically located commercial land near MIHAN, Bhandara Road & Samruddhi Highway.',
       description: 'Ideal land for expanding businesses, warehouses, factories, office spaces, showrooms, and long-term commercial investment in Central India.',
-      image: 'assets/images/image/Keshavam-City-7-View-2.jpg',
+      image: 'assets/images/image/keshavam-city-7-view-2.webp',
       route: '/location/plots-in-nagpur',
       tags: ['MIHAN Hub', 'Bhandara Road', 'Samruddhi Expressway', 'RERA Approved']
     },
@@ -28,7 +28,7 @@ export class CommercialPlotsComponent implements OnInit {
       badge: 'Logistics & Warehousing',
       subtitle: 'Prime land for warehouses, logistics hubs, and distribution centres.',
       description: 'Evaluate strategic location, heavy truck access, wide approach roads, plot configurations, and land-use permissions suited for logistics efficiency.',
-      image: 'assets/images/image/carousel-2.jpg',
+      image: 'assets/images/image/carousel-2.webp',
       route: '/location/warehouses-in-nagpur',
       tags: ['Wide Approach Roads', 'Truck Movement', 'Logistics Hub', 'Central Distribution']
     }

@@ -1,0 +1,53 @@
+.career-hero {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(to right, #8B0000, #000000); /* Dark red to black */
+  background-size: cover;
+  background-position: center;
+}
+
+.career-hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: darker overlay */
+  z-index: 1;
+}
+
+
+.z-2 {
+  z-index: 2;
+}
+
+.card {
+  border-radius: 15px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* Optional: increase modal’s z-index if you have other fixed elements */
+.modal {
+  z-index: 1050;
+}
+
+.form-button {
+    width: 100%;
+    padding: 14px;
+    background: #ff4d4f;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background: #d9363e;
+  }
+  

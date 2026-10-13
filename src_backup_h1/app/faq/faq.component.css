@@ -1,0 +1,238 @@
+:host {
+  display: block;
+}
+
+/* ---------- Hero ---------- */
+.faq-hero {
+  position: relative;
+  /* extra top padding so the fixed navbar does not cover the heading; adjust if needed */
+  padding: 150px 0 80px;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+}
+
+.faq-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.faq-hero__title {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  color: #fff;
+}
+
+.faq-hero__text {
+  margin: 0 auto;
+  max-width: 560px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---------- Layout ---------- */
+.faq-page {
+  padding: 64px 0 88px;
+  background: #fff;
+}
+
+.faq-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---------- Accordion ---------- */
+.faq-list {
+  border-top: 1px solid #e3e3e3;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e3e3e3;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.faq-item.open {
+  border-left-color: #dc3545;
+  background: #fdf5f6;
+}
+
+.faq-q {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.faq-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.15rem 1rem 1.15rem 1.25rem;
+  background: none;
+  border: 0;
+  text-align: left;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: #212529;
+  cursor: pointer;
+}
+
+.faq-btn:focus-visible {
+  outline: 3px solid #dc3545;
+  outline-offset: -3px;
+}
+
+/* plus / minus icon drawn with CSS */
+.faq-icon {
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: #dc3545;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease;
+}
+
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.open .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* the answer stays in the page (good for SEO) and only its height animates */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-item.open .faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel__inner {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+.faq-item.open .faq-panel__inner {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.faq-panel__inner p {
+  margin: 0;
+  padding: 0 3rem 1.4rem 1.25rem;
+  max-width: 72ch;
+  line-height: 1.7;
+  color: #495057;
+}
+
+/* ---------- Project links ---------- */
+.faq-projects {
+  margin-top: 3rem;
+}
+
+.faq-projects__title {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.faq-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-chips a {
+  display: inline-block;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid #dc3545;
+  border-radius: 999px;
+  color: #dc3545;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.faq-chips a:hover,
+.faq-chips a:focus-visible {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* ---------- Contact box ---------- */
+.faq-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  background: #f8f9fa;
+  border-left: 3px solid #dc3545;
+}
+
+.faq-cta__text {
+  margin: 0;
+  font-weight: 600;
+  color: #212529;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 575.98px) {
+  .faq-hero {
+    padding: 120px 0 56px;
+  }
+
+  .faq-page {
+    padding: 44px 0 64px;
+  }
+
+  .faq-btn {
+    font-size: 1rem;
+    padding: 1rem 0.75rem 1rem 1rem;
+  }
+
+  .faq-panel__inner p {
+    padding: 0 1rem 1.25rem 1rem;
+  }
+}
+
+/* ---------- Respect reduced-motion setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-icon::before,
+  .faq-icon::after,
+  .faq-panel,
+  .faq-panel__inner,
+  .faq-chips a {
+    transition: none;
+  }
+}

@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { Blog } from '../blog.model';
 import { Meta, Title } from '@angular/platform-browser';
+import { slugify } from '../blog-slug';                       // CHANGED (new import)
 
 @Component({
   selector: 'app-blog',
@@ -58,6 +59,14 @@ export class BlogComponent implements OnInit {
 
     this.blogs = this.blogService.getBlogs();
     this.updatePaginatedBlogs();
+
+    // TEMPORARY: slugs print karne ke liye. Slugs copy karke ye line hata dena.
+    this.blogs.forEach(b => console.log('/blog/' + slugify(b.title)));   // CHANGED
+  }
+
+  // CHANGED: blog heading se URL slug banata hai
+  slugOf(blog: Blog): string {
+    return slugify(blog.title);
   }
 
   updatePaginatedBlogs(): void {

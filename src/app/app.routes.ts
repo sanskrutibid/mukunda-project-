@@ -191,13 +191,12 @@ export const routes: Routes = [
 
   // =========================================================
   // BLOG DETAILS
-  // URL: /blog/1
-  // URL: /blog/2
-  // etc.
+  // URL: /blog/how-to-buy-a-plot-in-nagpur  (blog heading as slug)
+  // Old /blog/1 links are redirected inside BlogDetailComponent
   // =========================================================
 
   {
-    path: 'blog/:id',
+    path: 'blog/:slug',                                   // CHANGED (was blog/:id)
     loadComponent: () =>
       import('./blog-detail/blog-detail.component')
         .then(m => m.BlogDetailComponent)

@@ -1,0 +1,98 @@
+
+/* sticky-contact.component.css */
+.sticky-contact {
+    position: fixed;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-icons {
+    list-style: none;
+    padding: 10;
+    margin: 10;
+    font-size: large;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .sticky-contact {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0px -32px;
+    }
+
+    .contact-icons .icon {
+        display: flex;
+        align-items: center;
+        background-color: #26d367;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 0 10px 10px 0;
+        transition: background .3s ease;
+        font-size: 16px;
+        color: white;
+    }
+
+    .contact-icons .icon.phone {
+        background-color: #26d37c;
+    }
+    .icon-color
+    {
+        color: white;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .sticky-contact {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: white;
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid #ccc;
+    }
+    .icon-color
+    {
+        color: white;
+        background-color: #26d367;
+    }
+
+    .contact-icons {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        background: #26d367;
+    }
+
+    .contact-icons .icon {
+        background-color: transparent;
+        color: #000;
+        padding: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-icons .icon i {
+        font-size: 1.5rem;
+        color: #26d367;
+    }
+
+    .contact-icons .icon.phone i {
+        color: #26d37c;
+    }
+
+    .contact-icons .icon span {
+        font-size: 0.8rem;
+    }
+}
+
+.minimize-icon {
+    display: none;
+    /* Optional unless you implement minimize behavior */
+}
+
+

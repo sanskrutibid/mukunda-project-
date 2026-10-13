@@ -16,9 +16,9 @@ export class ImageService {
 
   private getDefaultImages(): CarouselImage[] {
     return [
-      { id: 1, url: 'assets/images/image/carousel-1.jpg' },
-      { id: 2, url: 'assets/images/image/carousel-2.jpg' },
-      { id: 3, url: 'assets/images/image/carousel-3.jpg' }
+      { id: 1, url: 'assets/images/image/carousel-1.webp' },
+      { id: 2, url: 'assets/images/image/carousel-2.webp' },
+      { id: 3, url: 'assets/images/image/carousel-3.webp' }
     ];
   }
 }

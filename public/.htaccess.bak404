@@ -1,0 +1,61 @@
+DirectorySlash Off
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Always use HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://mukundainfraventures.in%{REQUEST_URI} [L,R=301]
+
+  # 2. Send www to the non-www address
+  RewriteCond %{HTTP_HOST} ^www\.mukundainfraventures\.in$ [NC]
+  RewriteRule ^ https://mukundainfraventures.in%{REQUEST_URI} [L,R=301]
+
+  # 3. Old blog URLs: add real slugs here once known (placeholders removed on purpose)
+  # RewriteRule ^blog/1/?$ /blog/REAL-SLUG-1 [R=301,L]
+
+  # 4. /vraj/ -> /vraj (single redirect, same as canonical)
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # 5. /vraj -> prerendered /vraj/index.html
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^([^.]+)$ /$1/index.html [L]
+
+  # 6. Real files and folders (robots.txt, sitemap.xml, images, video) are served as they are
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 7. Missing files in assets must give a real 404, not the Angular app
+  RewriteRule ^assets/ - [L]
+
+  # 8. Every other address opens the Angular app
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Video and image types (some hosts do not set these)
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType image/webp .webp
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Browser caching (Angular build files have hashed names, so long cache is safe)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>
