@@ -46,6 +46,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   isBrowser: boolean;
 
   /*
+   * NEW: Footer tabhi dikhega jab pehla page
+   * (lazy-loaded route) poori tarah load ho jaye.
+   * Isse refresh par footer upar aakar blink nahi karta.
+   */
+  showFooter = false;
+
+  /*
    * MutationObserver watches dynamically loaded
    * Angular page content and removes native
    * browser image tooltips.
@@ -77,6 +84,13 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         )
       )
       .subscribe(() => {
+
+        /*
+         * NEW: Pehla route load hone ke baad footer dikhao.
+         * (Server/prerender par bhi chalta hai, isliye
+         * isBrowser check se pehle rakha hai.)
+         */
+        this.showFooter = true;
 
         if (!this.isBrowser) {
           return;

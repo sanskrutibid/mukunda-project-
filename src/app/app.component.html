@@ -1,4 +1,10 @@
 <app-navbar></app-navbar>
 <app-sticky-contact></app-sticky-contact>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<main class="page-content">
+  <router-outlet></router-outlet>
+</main>
+
+@if (showFooter) {
+  <app-footer></app-footer>
+}
