@@ -5,7 +5,7 @@ import {
   provideZoneChangeDetection
 } from '@angular/core';
 
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { CanonicalService } from './services/canonical.service';
@@ -18,7 +18,14 @@ export const appConfig: ApplicationConfig = {
       eventCoalescing: true
     }),
 
-    provideRouter(routes),
+    // scrollPositionRestoration: 'top' → footer se Terms/Privacy kholne par
+    // page upar se start hoga (neeche scroll nahi rahega)
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top'
+      })
+    ),
 
     provideAppInitializer(() => {
       const canonicalService = inject(CanonicalService);

@@ -1,8 +1,8 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -11,6 +11,8 @@ import { faRulerCombined, faStar, faMapMarkerAlt, faIndustry } from '@fortawesom
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Meta, Title } from '@angular/platform-browser';
+
+import { Subscription } from 'rxjs';
 
 @Component({
 
@@ -43,11 +45,15 @@ export class ProjectdetailComponent implements OnInit, OnDestroy {
   // Must match the background-image used in the banner section of the template
   private readonly heroImage = 'assets/images/image/carousel-3.webp';
 
+  private fragmentSub?: Subscription;
+
 
   constructor(
     private titleService: Title,
     private metaService: Meta,
-    @Inject(DOCUMENT) private document: Document
+    private route: ActivatedRoute,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: object
   ) {}
 
 
@@ -66,6 +72,39 @@ export class ProjectdetailComponent implements OnInit, OnDestroy {
     this.addBreadcrumbSchema();
 
     this.preloadHeroImage();
+
+    this.listenForFragment();
+
+  }
+
+
+  /*
+   * Supports links like /projects#Karmabhoomi, /projects#ayodhya,
+   * /projects#Vraj, /projects#Dwarka, /projects#Keshavam-City-9,
+   * /projects#Keshavam-City-10 (ids of the <section> tags in the template).
+   * Runs again if the fragment changes while the page is already open.
+   * Browser only, so it is SSR-safe.
+   */
+  private listenForFragment(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    this.fragmentSub = this.route.fragment.subscribe(fragment => {
+
+      if (!fragment) {
+        return;
+      }
+
+      // small delay so the sections are rendered before scrolling
+      setTimeout(() => {
+        this.document
+          .getElementById(fragment)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+
+    });
 
   }
 
@@ -136,6 +175,8 @@ export class ProjectdetailComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
+
+    this.fragmentSub?.unsubscribe();
 
     this.document.getElementById(this.breadcrumbScriptId)?.remove();
 

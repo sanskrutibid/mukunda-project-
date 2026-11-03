@@ -36,15 +36,17 @@ export class BlogDetailComponent implements OnInit {
     const i = this.blogs.findIndex(b => slugify(b.title) === param);
 
     if (i === -1) {
-      // purana /blog/1 link: naye slug URL par bhej do
+      // purana /blog/1 (ya /1) link: naye slug URL par bhej do
       const byId = this.blogs.findIndex(b => String(b.id) === param);
       if (byId !== -1) {
-        this.router.navigate(['/blog', slugify(this.blogs[byId].title)], { replaceUrl: true });
+        this.router.navigate(['/', slugify(this.blogs[byId].title)], { replaceUrl: true });
         return;
       }
 
-      // koi blog nahi mila: 404 page dikhao
-      this.router.navigateByUrl('/page-not-found', { skipLocationChange: true });
+      // koi blog nahi mila: 404 page dikhao (URL wahi rehta hai)
+      // NOTE: '/not-found' route app.routes.ts me ':slug' se UPAR hona chahiye
+      this.currentBlog = undefined;
+      this.router.navigateByUrl('/not-found', { skipLocationChange: true });
       return;
     }
 
@@ -58,7 +60,7 @@ export class BlogDetailComponent implements OnInit {
       description:
         blog.summary ||
         'Read real estate insights and property tips from Mukunda Infraventures, Nagpur.',
-      path: '/blog/' + slugify(blog.title),
+      path: '/' + slugify(blog.title),
       image: blog.image || undefined,
       type: 'article'
     });
@@ -76,7 +78,7 @@ export class BlogDetailComponent implements OnInit {
     }
     const blog = this.blogs.find(b => b.id === id);
     if (blog) {
-      this.router.navigate(['/blog', slugify(blog.title)]);
+      this.router.navigate(['/', slugify(blog.title)]);
     }
   }
 }

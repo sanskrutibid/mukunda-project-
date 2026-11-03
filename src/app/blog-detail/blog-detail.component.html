@@ -1,55 +1,84 @@
 <section class="">
-    <div class="bg-dark p-5"></div>
-<div class="container py-4" *ngIf="currentBlog">
+  <div class="bg-dark p-5"></div>
+
+  <div class="container py-4" *ngIf="currentBlog">
+
     <div class="m-4 p-4">
- <img [src]="currentBlog.image" class="card-img-top" alt="Blog Image">
+      <img [src]="currentBlog.image" class="card-img-top" [alt]="currentBlog.title">
     </div>
-   <div class="container" style="text-align: justify;">
+
+    <div class="container" style="text-align: justify;">
+
       <h1 style="text-align: center; padding: 10px; margin: 10px;">{{ currentBlog.title }}</h1>
-      <p>{{ currentBlog.summary }}</p>
 
-       <h3>{{ currentBlog.heading1 }}</h3>
-      <p>{{ currentBlog.paragraph1 }}</p>
+      <p style="white-space: pre-line;">{{ currentBlog.summary }}</p>
 
-      <h3>{{ currentBlog.heading2 }}</h3>
-      <p>{{ currentBlog.paragraph2 }}</p>
+      <ng-container *ngIf="currentBlog.heading1">
+        <h3>{{ currentBlog.heading1 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph1 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading3 }}</h3>
-      <p>{{ currentBlog.paragraph3 }}</p>
+      <ng-container *ngIf="currentBlog.heading2">
+        <h3>{{ currentBlog.heading2 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph2 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading4 }}</h3>
-      <p>{{ currentBlog.paragraph4 }}</p>
+      <ng-container *ngIf="currentBlog.heading3">
+        <h3>{{ currentBlog.heading3 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph3 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading5 }}</h3>
-      <p>{{ currentBlog.paragraph5 }}</p>
+      <ng-container *ngIf="currentBlog.heading4">
+        <h3>{{ currentBlog.heading4 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph4 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading6 }}</h3>
-      <p>{{ currentBlog.paragraph6 }}</p>
+      <ng-container *ngIf="currentBlog.heading5">
+        <h3>{{ currentBlog.heading5 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph5 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading7 }}</h3>
-      <p>{{ currentBlog.paragraph7 }}</p>
+      <ng-container *ngIf="currentBlog.heading6">
+        <h3>{{ currentBlog.heading6 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph6 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading8 }}</h3>
-      <p>{{ currentBlog.paragraph8 }}</p>
+      <ng-container *ngIf="currentBlog.heading7">
+        <h3>{{ currentBlog.heading7 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph7 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading9 }}</h3>
-      <p>{{ currentBlog.paragraph9 }}</p>
+      <ng-container *ngIf="currentBlog.heading8">
+        <h3>{{ currentBlog.heading8 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph8 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading10 }}</h3>
-      <p>{{ currentBlog.paragraph10 }}</p>
+      <ng-container *ngIf="currentBlog.heading9">
+        <h3>{{ currentBlog.heading9 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph9 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading11 }}</h3>
-      <p>{{ currentBlog.paragraph11 }}</p>
+      <ng-container *ngIf="currentBlog.heading10">
+        <h3>{{ currentBlog.heading10 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph10 }}</p>
+      </ng-container>
 
-      <h3>{{ currentBlog.heading12 }}</h3>
-      <p>{{ currentBlog.paragraph12 }}</p>
-</div>
+      <ng-container *ngIf="currentBlog.heading11">
+        <h3>{{ currentBlog.heading11 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph11 }}</p>
+      </ng-container>
 
+      <ng-container *ngIf="currentBlog.heading12">
+        <h3>{{ currentBlog.heading12 }}</h3>
+        <p style="white-space: pre-line;">{{ currentBlog.paragraph12 }}</p>
+      </ng-container>
 
-      <nav class="d-flex justify-content-between mt-5">
-        <button class="btn btn-outline-danger" [disabled]="!hasPrev" (click)="goTo(prevId)">← Previous</button>
-        <button class="btn btn-outline-danger" [disabled]="!hasNext" (click)="goTo(nextId)">Next →</button>
-      </nav>
     </div>
 
-    </section>
+    <nav class="d-flex justify-content-between mt-5">
+      <button class="btn btn-outline-danger" [disabled]="!hasPrev" (click)="goTo(prevId)">← Previous</button>
+      <button class="btn btn-outline-danger" [disabled]="!hasNext" (click)="goTo(nextId)">Next →</button>
+    </nav>
+
+  </div>
+</section>

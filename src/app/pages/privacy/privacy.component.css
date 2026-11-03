@@ -1,0 +1,22 @@
+.policy-page {
+  /* header/logo ke neeche gap - isse kam ya zyada kar sakte ho */
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+}
+
+.policy-page h5 {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.policy-page p,
+.policy-page li {
+  line-height: 1.7;
+}
+
+/* Mobile par thoda kam gap */
+@media (max-width: 768px) {
+  .policy-page {
+    padding-top: 6rem;
+  }
+}

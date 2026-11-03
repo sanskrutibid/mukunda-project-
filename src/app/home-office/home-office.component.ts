@@ -3,7 +3,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFacebook, faInstagram, faTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { CommonModule } from '@angular/common'; // ✅ Import this
 import { NgClass } from '@angular/common';       // ✅ Import this
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SafeUrlPipe } from '../safe-url.pipe';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -53,8 +53,11 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
   }
 
 
+  // CHANGED: Project Overview card par click karte hi seedha us project ka page khulega
+  // (jaise Karmabhoomi -> /karmabhumi, Ayodhya -> /ayodhya)
   setActive(index: number) {
     this.activeIndex = index;
+    this.router.navigate([this.projectList[index].link]);
   }
 
   nextSlide() {
@@ -76,7 +79,8 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
 
   constructor(private el: ElementRef,
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private router: Router
   ) { }
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
 
@@ -123,4 +127,3 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
 
 
 }
-

@@ -154,7 +154,7 @@ export const routes: Routes = [
   },
 
   // =========================================================
-  // BLOG
+  // BLOG (list page)
   // URL: /blog
   // =========================================================
 
@@ -163,6 +163,17 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./blog/blog.component')
         .then(m => m.BlogComponent)
+  },
+
+  // =========================================================
+  // OLD BLOG DETAIL URLS
+  // /blog/some-slug → /some-slug   (old links keep working)
+  // /blog/1 → /1  (BlogDetailComponent handles old id links)
+  // =========================================================
+
+  {
+    path: 'blog/:slug',
+    redirectTo: ':slug'
   },
 
   // =========================================================
@@ -190,16 +201,27 @@ export const routes: Routes = [
   },
 
   // =========================================================
-  // BLOG DETAILS
-  // URL: /blog/how-to-buy-a-plot-in-nagpur  (blog heading as slug)
-  // Old /blog/1 links are redirected inside BlogDetailComponent
+  // TERMS & CONDITIONS   (NEW)
+  // URL: /terms
   // =========================================================
 
   {
-    path: 'blog/:slug',                                   // CHANGED (was blog/:id)
+    path: 'terms',
     loadComponent: () =>
-      import('./blog-detail/blog-detail.component')
-        .then(m => m.BlogDetailComponent)
+      import('./pages/terms/terms.component')
+        .then(m => m.TermsComponent)
+  },
+
+  // =========================================================
+  // PRIVACY POLICY   (NEW)
+  // URL: /privacy
+  // =========================================================
+
+  {
+    path: 'privacy',
+    loadComponent: () =>
+      import('./pages/privacy/privacy.component')
+        .then(m => m.PrivacyComponent)
   },
 
   // =========================================================
@@ -339,8 +361,35 @@ export const routes: Routes = [
   },
 
   // =========================================================
+  // 404 PAGE (direct route)
+  // BlogDetailComponent sends unknown slugs here.
+  // Must be ABOVE the ':slug' route below.
+  // =========================================================
+
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./not-found/not-found.component')
+        .then(m => m.NotFoundComponent)
+  },
+
+  // =========================================================
+  // BLOG DETAILS (no /blog prefix)
+  // URL: /samruddhi-mahamarg-and-nagpur-real-estate-what-buyers-should-know
+  // This matches ANY single-segment URL, so it must stay
+  // BELOW every other single-segment route and ABOVE '**'.
+  // =========================================================
+
+  {
+    path: ':slug',
+    loadComponent: () =>
+      import('./blog-detail/blog-detail.component')
+        .then(m => m.BlogDetailComponent)
+  },
+
+  // =========================================================
   // 404 - PAGE NOT FOUND
-  // Must stay LAST: it matches every URL not matched above.
+  // Must stay LAST (multi-segment unknown URLs land here).
   // =========================================================
 
   {
