@@ -23,6 +23,9 @@ ErrorDocument 404 /404/index.html
   RewriteRule ^commercial-plots/plots-in-nagpur/?$ /location/plots-in-nagpur [R=301,L]
   RewriteRule ^commercial-plots/warehouses-in-nagpur/?$ /location/warehouses-in-nagpur [R=301,L]
 
+  # 3b. NEW: /blog/some-slug -> /some-slug (real server-side 301)
+  RewriteRule ^blog/([^/]+)/?$ /$1 [R=301,L]
+
   # 4. /vraj/ -> /vraj (single redirect, same as canonical)
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.+)/$ /$1 [R=301,L]
@@ -31,7 +34,7 @@ ErrorDocument 404 /404/index.html
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^([^.]+)$ /$1/index.html [L]
 
-  # 6. Real files and folders (js, css, images, video, robots.txt, llms.txt, sitemap.xml)
+  # 6. Real files and folders
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
@@ -39,10 +42,10 @@ ErrorDocument 404 /404/index.html
   # 7. Missing files in assets: genuine 404
   RewriteRule ^assets/ - [R=404,L]
 
-  # 8. Angular-only routes that are not prerendered (login, admin, blog detail)
-  RewriteRule ^(login|admin(/.*)?|blog/[^/]+)/?$ index.html [L]
+  # 8. Angular-only routes (login, admin, terms, privacy, blog detail /slug)
+  RewriteRule ^(login|admin(/.*)?|[^/.]+)/?$ index.html [L]
 
-  # 9. Everything else: genuine 404 (shows /404/index.html)
+  # 9. Everything else: genuine 404
   RewriteRule ^ - [R=404,L]
 </IfModule>
 
@@ -62,7 +65,7 @@ ErrorDocument 404 /404/index.html
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
 </IfModule>
 
-# Browser caching (Angular build files have hashed names, so long cache is safe)
+# Browser caching
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
