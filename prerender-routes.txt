@@ -16,5 +16,6 @@
 /location
 /location/plots-in-nagpur
 /location/warehouses-in-nagpur
-
+/terms
+/privacy
 /404

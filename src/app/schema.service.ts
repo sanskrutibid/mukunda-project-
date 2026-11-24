@@ -9,6 +9,10 @@ import { DOCUMENT } from '@angular/common';
  *   ngOnInit() { this.schema.setHome(); }
  *
  * Works with SSR/prerender (uses DOCUMENT, not window).
+ *
+ * NOTE: the sitewide WebSite + RealEstateAgent graph now lives ONCE in
+ * src/index.html (so it is on every page). setHome() no longer adds a
+ * second organization block.
  */
 
 const SITE = 'https://mukundainfraventures.in';
@@ -50,68 +54,69 @@ const PAGE_NAMES: Record<string, string> = {
 /** In URLs par koi schema nahi lagega (private / noindex pages) */
 const NO_SCHEMA_PREFIXES = ['/admin', '/login'];
 
+/** Fallback image until each project has its own 1200x630 image: replace per project below */
+const DEFAULT_PROJECT_IMAGE = `${SITE}/assets/og/home.jpg`;
+
 /** Har project ki ek entry. priceFrom TABHI add karo jab client confirm kare */
 const PROJECTS: ProjectInput[] = [
   {
     name: 'Keshavam City 7',
     slug: 'keshavam-city-7',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-keshavam-city-7.jpg`,
-    locality: 'TODO',
+    description: 'Sold-out project at Takli near MIHAN, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Takli',
   },
   {
     name: 'Karmabhumi',
     slug: 'karmabhumi',
-    description: 'Industrial plots.', // sirf industrial, residential nahi
-    image: `${SITE}/assets/TODO-karmabhumi.jpg`,
-    locality: 'TODO',
+    description: 'Industrial plots on Bhandara Road, Nagpur.', // sirf industrial, residential nahi
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Mahalgaon',
   },
   {
     name: 'Vraj',
     slug: 'vraj',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-vraj.jpg`,
-    locality: 'TODO',
+    description: 'Residential plots in Jamtha, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Jamtha',
   },
   {
     name: 'Ayodhya',
     slug: 'ayodhya',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-ayodhya.jpg`,
-    locality: 'TODO',
+    description: 'Residential plots in Tarodi, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Tarodi',
   },
   {
     name: 'Dwarka',
     slug: 'dwarka',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-dwarka.jpg`,
-    locality: 'TODO',
+    description: 'Residential plots in Sumthana, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Sumthana',
   },
   {
     name: 'Keshavam City 9',
     slug: 'keshavam-city-9',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-keshavam-city-9.jpg`,
-    locality: 'TODO',
+    description: 'Plots in Wagdhara, Hingna, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Wagdhara',
     // priceFrom: 0,  // client confirm kare tabhi
   },
   {
     name: 'Keshavam City 10',
     slug: 'keshavam-city-10',
-    description: 'TODO: description',
-    image: `${SITE}/assets/TODO-keshavam-city-10.jpg`,
-    locality: 'TODO',
+    description: 'Plots in Wagdhara, Hingna, Nagpur.',
+    image: DEFAULT_PROJECT_IMAGE,
+    locality: 'Wagdhara',
   },
 ];
 
-/** FAQ page ke questions (page par dikhne wale text jaisa hi rakho) */
-const FAQ_ITEMS: FaqItem[] = [
-  {
-    question: 'TODO: question?',
-    answer: 'TODO: answer',
-  },
-  // Karmabhumi: sirf industrial plots, residential nahi
-];
+/**
+ * FAQ page ke questions (page par dikhne wale text jaisa hi rakho).
+ * Jab tak yahan real questions nahi hain, /faq par sirf breadcrumb lagega.
+ * Karmabhumi: sirf industrial plots, residential nahi
+ */
+const FAQ_ITEMS: FaqItem[] = [];
 
 @Injectable({ providedIn: 'root' })
 export class SchemaService {
@@ -119,24 +124,13 @@ export class SchemaService {
 
   // ---------- PUBLIC METHODS (call these from pages) ----------
 
-  /** Homepage ONLY: the RealEstateAgent / organization block */
+  /**
+   * Homepage ONLY.
+   * The RealEstateAgent / organization graph is in src/index.html now,
+   * so no second copy is rendered here (it used to hold placeholder data).
+   */
   setHome(): void {
-    this.render('organization', {
-      '@context': 'https://schema.org',
-      '@type': 'RealEstateAgent',
-      '@id': ORG_ID,
-      name: 'Mukunda Infra Ventures',          // TODO: confirm exact name
-      url: `${SITE}/`,
-      logo: `${SITE}/assets/logo.png`,          // TODO: real logo path
-      telephone: '+91-XXXXXXXXXX',              // TODO
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'TODO',
-        addressLocality: 'Nagpur',
-        addressRegion: 'Maharashtra',
-        addressCountry: 'IN',
-      },
-    });
+    this.clear('organization');
     this.clear('breadcrumb');
     this.clear('project');
     this.clear('faq');
@@ -228,7 +222,10 @@ export class SchemaService {
     }
 
     if (path === '/') return this.setHome();
-    if (path === '/faq') return this.setFaq(FAQ_ITEMS);
+    if (path === '/faq') {
+      // FAQPage schema only when real FAQ items exist (no placeholder text in schema)
+      return FAQ_ITEMS.length ? this.setFaq(FAQ_ITEMS) : this.setPage('FAQ', '/faq');
+    }
 
     const project = PROJECTS.find(p => `/${p.slug}` === path);
     if (project) return this.setProject(project);

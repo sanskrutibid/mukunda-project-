@@ -10,22 +10,55 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { VmvService } from '../admin/vmv.service';
-import { faHome, faCommentDots } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SafeUrlPipe } from '../safe-url.pipe';
-import { ImageService } from '../admin/image.service';
-import { CarouselImage } from '../admin/image.model';
+import { Meta, Title } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
+  faHome,
+  faCommentDots,
   faSeedling,
   faBuilding,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
-import { Meta, Title } from '@angular/platform-browser';
+
+import { ImageService } from '../admin/image.service';
+
+/* ------------------------------------------------------------------
+ * SEO: page title + meta description for the home page
+ * ------------------------------------------------------------------ */
+const HOME_TITLE = 'Residential & Industrial Plots in Nagpur | Mukunda';
+
+const HOME_DESCRIPTION =
+  'Plots across Nagpur: Karmabhoomi industrial estate on Bhandara Road and residential layouts at Tarodi, Jamtha, Sumthana and Wagdhara. MahaRERA registered projects.';
+
+const HOME_OG_DESCRIPTION =
+  'Plots across Nagpur: Karmabhoomi industrial estate on Bhandara Road and residential layouts at Tarodi, Jamtha, Sumthana and Wagdhara.';
+
+/* ------------------------------------------------------------------
+ * Default content (used when nothing is stored in localStorage,
+ * and always on the server for SSR)
+ * ------------------------------------------------------------------ */
+const DEFAULT_ABOUT_TEXT =
+  'Mukunda Infraventure & Projects Pvt. Ltd, we don’t just build properties — we craft living experiences. With a legacy of trust and excellence, we specialize in delivering thoughtfully designed residential and commercial spaces that reflect innovation, quality, and sustainability. Whether you are a first-time homebuyer or a seasoned investor, our mission is to turn your real estate goals into reality. Every project we undertake is driven by passion, precision, and a commitment to exceed expectations — because your dream deserves more than just a building it deserves a foundation of trust.';
+
+const DEFAULT_VISION_TEXT =
+  'At Mukunda Infraventures & Projects Private Limited, our vision is to revolutionize real estate experiences with values by combining innovative solutions with unwavering integrity. We are committed to transforming properties into thriving communities, ensuring exceptional value for our clients and stakeholders. we aspire to be the preferred choice in real estate, setting new standards  the future of urban living.';
+
+const DEFAULT_MISSION_TEXT =
+  'At Mukunda Infraventures & Projects Private Limited, Our mission is to deliver high-quality, affordable, and thoughtfully designed real estate solutions that exceed expectations. With a commitment to timely delivery and customer satisfaction, we aim to redefine the urban living experience. We focus on enhancing lifestyles through intelligent planning, and a deep understanding of our clients’ needs and aspirations.';
+
+const DEFAULT_VALUES_TEXT =
+  'Integrity: We act with honesty and transparency in all our dealings. Innovation: We embrace change and strive for continuous improvement. Quality: We deliver excellence in every square foot we build. Sustainability:We build responsibly with future in mind. Customer-Centricity: Our clients are at the core of our business; their dreams shape our direction.';
+
+const DEFAULT_SECTION_IMAGE = 'assets/images/image/dev-bhoomi-view-3.webp';
+
+const DEFAULT_CAROUSEL = [
+  { id: 1, url: '/assets/images/image/carousel-1.webp' },
+  { id: 2, url: '/assets/images/image/carousel-2.webp' },
+  { id: 3, url: '/assets/images/image/carousel-3.webp' }
+];
 
 @Component({
   selector: 'app-home',
@@ -39,8 +72,7 @@ import { Meta, Title } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent
-  implements AfterViewInit, OnInit, OnDestroy {
+export class HomeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   faHome = faHome;
   faCommentDots = faCommentDots;
@@ -89,18 +121,15 @@ export class HomeComponent
 
   visionText: string = '';
   visionTitle: string = '';
-  visionImage: string =
-    'assets/images/image/keshavam-city9.webp';
+  visionImage: string = 'assets/images/image/keshavam-city9.webp';
 
   missionText: string = '';
   missionTitle: string = '';
-  missionImage: string =
-    'assets/images/image/dev-bhoomi-view-3.webp';
+  missionImage: string = 'assets/images/image/dev-bhoomi-view-3.webp';
 
   valuesTitle: string = '';
   valuesText: string = '';
-  valuesImage: string =
-    'assets/images/image/dev-bhoomi-view-3.webp';
+  valuesImage: string = 'assets/images/image/dev-bhoomi-view-3.webp';
 
   vimeoUrl: string = '';
 
@@ -210,8 +239,7 @@ export class HomeComponent
         'Karmabhoomi is located in the Hingna area of Nagpur, a developing location with access to important roads and surrounding residential and commercial areas.'
     },
     {
-      question:
-        'What is the Ayodhya project by Mukunda Infraventures?',
+      question: 'What is the Ayodhya project by Mukunda Infraventures?',
       answer:
         'The Ayodhya project is a real estate offering by Mukunda Infraventures positioned for buyers looking for property opportunities in Nagpur.'
     },
@@ -221,8 +249,7 @@ export class HomeComponent
         'Vraj is another real estate project offered by Mukunda Infraventures. Interested buyers can contact the company for detailed information about its location, plots, amenities, and availability.'
     },
     {
-      question:
-        'Can I visit the project before making a purchase?',
+      question: 'Can I visit the project before making a purchase?',
       answer:
         'Yes. Prospective buyers can enquire with Mukunda Infraventures about arranging a project or site visit before making their investment decision.'
     }
@@ -230,18 +257,27 @@ export class HomeComponent
 
   ngOnInit() {
 
-    this.titleService.setTitle(
-      'Explore Real Estate Projects in Nagpur - Mukunda Infraventures'
-    );
+    /* ---------- SEO: title + meta description ---------- */
+    this.titleService.setTitle(HOME_TITLE);
 
     this.metaService.updateTag({
       name: 'description',
-      content:
-        'Explore Mukunda Infraventures’ real estate projects in Nagpur and discover properties designed around location, planning, quality and modern lifestyle needs.'
+      content: HOME_DESCRIPTION
     });
 
-    const duration =
-      this.waveText.length * 100 + 1000;
+    // Share preview (WhatsApp / Facebook / LinkedIn)
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: HOME_TITLE
+    });
+
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: HOME_OG_DESCRIPTION
+    });
+
+    /* ---------- Wave text timer ---------- */
+    const duration = this.waveText.length * 100 + 1000;
 
     if (this.isBrowser) {
       setTimeout(() => {
@@ -251,193 +287,95 @@ export class HomeComponent
       this.showAnimatedText = false;
     }
 
-    /*
-     * Browser-only localStorage operations
-     */
+    /* ---------- Section content ---------- */
     if (this.isBrowser) {
 
       // About section
-      const storedText =
-        localStorage.getItem('aboutText');
+      const storedText = localStorage.getItem('aboutText');
+      const storedImage = localStorage.getItem('aboutImage');
 
-      const storedImage =
-        localStorage.getItem('aboutImage');
-
-      this.aboutText =
-        storedText ||
-        'Mukunda Infraventure & Projects Pvt. Ltd, we don’t just build properties — we craft living experiences. With a legacy of trust and excellence, we specialize in delivering thoughtfully designed residential and commercial spaces that reflect innovation, quality, and sustainability. Whether you are a first-time homebuyer or a seasoned investor, our mission is to turn your real estate goals into reality. Every project we undertake is driven by passion, precision, and a commitment to exceed expectations — because your dream deserves more than just a building it deserves a foundation of trust.';
+      this.aboutText = storedText || DEFAULT_ABOUT_TEXT;
 
       if (storedImage) {
         this.aboutImage = storedImage;
       }
 
       // Vision section
-      const storedvisionTitle =
-        localStorage.getItem('visionTitle');
-
-      const storedvisionText =
-        localStorage.getItem('visionText');
-
-      const storedvisionImage =
-        localStorage.getItem('visionImage');
-
       this.visionTitle =
-        storedvisionTitle || 'Our Vision';
+        localStorage.getItem('visionTitle') || 'Our Vision';
 
       this.visionText =
-        storedvisionText ||
-        'At Mukunda Infraventures & Projects Private Limited, our vision is to revolutionize real estate experiences with values by combining innovative solutions with unwavering integrity. We are committed to transforming properties into thriving communities, ensuring exceptional value for our clients and stakeholders. we aspire to be the preferred choice in real estate, setting new standards  the future of urban living.';
+        localStorage.getItem('visionText') || DEFAULT_VISION_TEXT;
 
       this.visionImage =
-        storedvisionImage ||
-        'assets/images/image/dev-bhoomi-view-3.webp';
+        localStorage.getItem('visionImage') || DEFAULT_SECTION_IMAGE;
 
       // Mission section
-      const storedMissionTitle =
-        localStorage.getItem('missionTitle');
-
-      const storedMissionText =
-        localStorage.getItem('missionText');
-
-      const storedMissionImage =
-        localStorage.getItem('missionImage');
-
       this.missionTitle =
-        storedMissionTitle || 'Our Mission';
+        localStorage.getItem('missionTitle') || 'Our Mission';
 
       this.missionText =
-        storedMissionText ||
-        'At Mukunda Infraventures & Projects Private Limited, Our mission is to deliver high-quality, affordable, and thoughtfully designed real estate solutions that exceed expectations. With a commitment to timely delivery and customer satisfaction, we aim to redefine the urban living experience. We focus on enhancing lifestyles through intelligent planning, and a deep understanding of our clients’ needs and aspirations.';
+        localStorage.getItem('missionText') || DEFAULT_MISSION_TEXT;
 
       this.missionImage =
-        storedMissionImage ||
-        'assets/images/image/dev-bhoomi-view-3.webp';
+        localStorage.getItem('missionImage') || DEFAULT_SECTION_IMAGE;
 
       // Values section
-      const storedValuesTitle =
-        localStorage.getItem('valuesTitle');
-
-      const storedValuesText =
-        localStorage.getItem('valuesText');
-
-      const storedValuesImage =
-        localStorage.getItem('valuesImage');
-
       this.valuesTitle =
-        storedValuesTitle || 'Our Values';
+        localStorage.getItem('valuesTitle') || 'Our Values';
 
       this.valuesText =
-        storedValuesText ||
-        'Integrity: We act with honesty and transparency in all our dealings. Innovation: We embrace change and strive for continuous improvement. Quality: We deliver excellence in every square foot we build. Sustainability:We build responsibly with future in mind. Customer-Centricity: Our clients are at the core of our business; their dreams shape our direction.';
+        localStorage.getItem('valuesText') || DEFAULT_VALUES_TEXT;
 
       this.valuesImage =
-        storedValuesImage ||
-        'assets/images/image/dev-bhoomi-view-3.webp';
+        localStorage.getItem('valuesImage') || DEFAULT_SECTION_IMAGE;
 
     } else {
 
-      /*
-       * SSR defaults
-       */
-      this.aboutText =
-        'Mukunda Infraventure & Projects Pvt. Ltd, we don’t just build properties — we craft living experiences. With a legacy of trust and excellence, we specialize in delivering thoughtfully designed residential and commercial spaces that reflect innovation, quality, and sustainability. Whether you are a first-time homebuyer or a seasoned investor, our mission is to turn your real estate goals into reality. Every project we undertake is driven by passion, precision, and a commitment to exceed expectations — because your dream deserves more than just a building it deserves a foundation of trust.';
+      /* SSR defaults */
+      this.aboutText = DEFAULT_ABOUT_TEXT;
 
       this.visionTitle = 'Our Vision';
-
-      this.visionText =
-        'At Mukunda Infraventures & Projects Private Limited, our vision is to revolutionize real estate experiences with values by combining innovative solutions with unwavering integrity. We are committed to transforming properties into thriving communities, ensuring exceptional value for our clients and stakeholders. we aspire to be the preferred choice in real estate, setting new standards  the future of urban living.';
-
-      this.visionImage =
-        'assets/images/image/dev-bhoomi-view-3.webp';
+      this.visionText = DEFAULT_VISION_TEXT;
+      this.visionImage = DEFAULT_SECTION_IMAGE;
 
       this.missionTitle = 'Our Mission';
-
-      this.missionText =
-        'At Mukunda Infraventures & Projects Private Limited, Our mission is to deliver high-quality, affordable, and thoughtfully designed real estate solutions that exceed expectations. With a commitment to timely delivery and customer satisfaction, we aim to redefine the urban living experience. We focus on enhancing lifestyles through intelligent planning, and a deep understanding of our clients’ needs and aspirations.';
-
-      this.missionImage =
-        'assets/images/image/dev-bhoomi-view-3.webp';
+      this.missionText = DEFAULT_MISSION_TEXT;
+      this.missionImage = DEFAULT_SECTION_IMAGE;
 
       this.valuesTitle = 'Our Values';
-
-      this.valuesText =
-        'Integrity: We act with honesty and transparency in all our dealings. Innovation: We embrace change and strive for continuous improvement. Quality: We deliver excellence in every square foot we build. Sustainability:We build responsibly with future in mind. Customer-Centricity: Our clients are at the core of our business; their dreams shape our direction.';
-
-      this.valuesImage =
-        'assets/images/image/dev-bhoomi-view-3.webp';
+      this.valuesText = DEFAULT_VALUES_TEXT;
+      this.valuesImage = DEFAULT_SECTION_IMAGE;
     }
 
-    // Video section
-    this.vimeoUrl =
-      'assets/vedio/Karmabhumi.mp4';
+    /* ---------- Video section ---------- */
+    this.vimeoUrl = 'assets/vedio/Karmabhumi.mp4';
 
-    // Carousel
-    this.carouselImages =
-      this.imageservice.getImages() || [];
+    /* ---------- Carousel ---------- */
+    this.carouselImages = this.imageservice.getImages() || [];
 
     if (this.isBrowser) {
 
       this.trackPageVisit('Home');
 
-      const storedImages =
-        localStorage.getItem('carouselImages');
+      const storedImages = localStorage.getItem('carouselImages');
 
       if (storedImages) {
         try {
-          this.carouselImages =
-            JSON.parse(storedImages);
+          this.carouselImages = JSON.parse(storedImages);
         } catch {
-          this.carouselImages = [
-            {
-              id: 1,
-              url: '/assets/images/image/carousel-1.webp'
-            },
-            {
-              id: 2,
-              url: '/assets/images/image/carousel-2.webp'
-            },
-            {
-              id: 3,
-              url: '/assets/images/image/carousel-3.webp'
-            }
-          ];
+          this.carouselImages = DEFAULT_CAROUSEL.map(i => ({ ...i }));
         }
       } else {
-        this.carouselImages = [
-          {
-            id: 1,
-            url: '/assets/images/image/carousel-1.webp'
-          },
-          {
-            id: 2,
-            url: '/assets/images/image/carousel-2.webp'
-          },
-          {
-            id: 3,
-            url: '/assets/images/image/carousel-3.webp'
-          }
-        ];
+        this.carouselImages = DEFAULT_CAROUSEL.map(i => ({ ...i }));
       }
-    } else {
 
+    } else {
       /*
        * SSR fallback carousel.
        * No localStorage / Date / browser API required.
        */
-      this.carouselImages = [
-        {
-          id: 1,
-          url: '/assets/images/image/carousel-1.webp'
-        },
-        {
-          id: 2,
-          url: '/assets/images/image/carousel-2.webp'
-        },
-        {
-          id: 3,
-          url: '/assets/images/image/carousel-3.webp'
-        }
-      ];
+      this.carouselImages = DEFAULT_CAROUSEL.map(i => ({ ...i }));
     }
 
     /*
@@ -455,11 +393,7 @@ export class HomeComponent
       return;
     }
 
-    if (
-      document.getElementById(
-        'faq-schema-script'
-      )
-    ) {
+    if (document.getElementById('faq-schema-script')) {
       return;
     }
 
@@ -476,13 +410,11 @@ export class HomeComponent
       }))
     };
 
-    const script =
-      document.createElement('script');
+    const script = document.createElement('script');
 
     script.id = 'faq-schema-script';
     script.type = 'application/ld+json';
-    script.text =
-      JSON.stringify(faqSchema);
+    script.text = JSON.stringify(faqSchema);
 
     document.head.appendChild(script);
   }
@@ -493,10 +425,7 @@ export class HomeComponent
       return;
     }
 
-    const existingScript =
-      document.getElementById(
-        'faq-schema-script'
-      );
+    const existingScript = document.getElementById('faq-schema-script');
 
     if (existingScript) {
       existingScript.remove();
@@ -524,36 +453,31 @@ export class HomeComponent
   ) {
 
     if (!this.isBrowser) {
-      counter.displayValue =
-        counter.target;
+      counter.displayValue = counter.target;
       counter.done = true;
       return;
     }
 
     const duration = 2000;
     const steps = 100;
-    const increment =
-      counter.target / steps;
+    const increment = counter.target / steps;
 
     let currentStep = 0;
 
-    const interval =
-      setInterval(() => {
+    const interval = setInterval(() => {
 
-        counter.displayValue += increment;
-        currentStep++;
+      counter.displayValue += increment;
+      currentStep++;
 
-        if (currentStep >= steps) {
+      if (currentStep >= steps) {
 
-          clearInterval(interval);
+        clearInterval(interval);
 
-          counter.displayValue =
-            counter.target;
+        counter.displayValue = counter.target;
+        counter.done = true;
+      }
 
-          counter.done = true;
-        }
-
-      }, duration / steps);
+    }, duration / steps);
   }
 
   showLearnMore = false;
@@ -565,17 +489,13 @@ export class HomeComponent
       return;
     }
 
-    const aboutSection =
-      document.getElementById('about');
+    const aboutSection = document.getElementById('about');
 
     if (aboutSection) {
 
-      const rect =
-        aboutSection.getBoundingClientRect();
+      const rect = aboutSection.getBoundingClientRect();
 
-      this.showLearnMore =
-        rect.top <=
-        window.innerHeight / 1.5;
+      this.showLearnMore = rect.top <= window.innerHeight / 1.5;
     }
   }
 
@@ -585,10 +505,7 @@ export class HomeComponent
       return;
     }
 
-    const more =
-      document.getElementById(
-        'more-details'
-      );
+    const more = document.getElementById('more-details');
 
     more?.scrollIntoView({
       behavior: 'smooth'
@@ -601,27 +518,22 @@ export class HomeComponent
       return;
     }
 
-    const file =
-      event?.target?.files?.[0];
+    const file = event?.target?.files?.[0];
 
     if (file) {
 
-      const reader =
-        new FileReader();
+      const reader = new FileReader();
 
       reader.onload = (e: any) => {
 
-        const base64Image =
-          e.target.result;
+        const base64Image = e.target.result;
 
         const newImage = {
           id: Date.now(),
           url: base64Image
         };
 
-        this.carouselImages.push(
-          newImage
-        );
+        this.carouselImages.push(newImage);
       };
 
       reader.readAsDataURL(file);
@@ -636,38 +548,25 @@ export class HomeComponent
 
     localStorage.setItem(
       'carouselImages',
-      JSON.stringify(
-        this.carouselImages
-      )
+      JSON.stringify(this.carouselImages)
     );
 
-    alert(
-      'Image saved successfully!'
-    );
+    alert('Image saved successfully!');
   }
 
-  trackPageVisit(
-    pageName: string
-  ): void {
+  trackPageVisit(pageName: string): void {
 
     if (!this.isBrowser) {
       return;
     }
 
-    const visits =
-      JSON.parse(
-        localStorage.getItem(
-          'pageVisits'
-        ) || '{}'
-      );
-
-    visits[pageName] =
-      (visits[pageName] || 0) + 1;
-
-    localStorage.setItem(
-      'pageVisits',
-      JSON.stringify(visits)
+    const visits = JSON.parse(
+      localStorage.getItem('pageVisits') || '{}'
     );
+
+    visits[pageName] = (visits[pageName] || 0) + 1;
+
+    localStorage.setItem('pageVisits', JSON.stringify(visits));
   }
 
   ngAfterViewInit(): void {
@@ -677,87 +576,55 @@ export class HomeComponent
     }
 
     // Navbar scroll behavior
-    const nav =
-      document.querySelector(
-        '.navbar'
-      );
+    const nav = document.querySelector('.navbar');
 
     window.onscroll = () => {
 
-      if (
-        document.documentElement
-          .scrollTop > 20
-      ) {
-        nav?.classList.add(
-          'header-scrolled'
-        );
+      if (document.documentElement.scrollTop > 20) {
+        nav?.classList.add('header-scrolled');
       } else {
-        nav?.classList.remove(
-          'header-scrolled'
-        );
+        nav?.classList.remove('header-scrolled');
       }
     };
 
     // Collapse navbar on link click
-    const navBar =
-      document.querySelectorAll(
-        '.nav-link'
-      );
-
-    const navCollapse =
-      document.querySelector(
-        '#navbarNav'
-      );
+    const navBar = document.querySelectorAll('.nav-link');
+    const navCollapse = document.querySelector('#navbarNav');
 
     navBar.forEach(link => {
 
-      link.addEventListener(
-        'click',
-        () => {
-          navCollapse?.classList.remove(
-            'show'
-          );
-        }
-      );
+      link.addEventListener('click', () => {
+        navCollapse?.classList.remove('show');
+      });
 
     });
 
     // Counter observer: the count-up runs only in the browser,
     // when the counter section scrolls into view.
-    if (
-      typeof IntersectionObserver !==
-      'undefined'
-    ) {
+    if (typeof IntersectionObserver !== 'undefined') {
 
-      const observer =
-        new IntersectionObserver(
-          entries => {
+      const observer = new IntersectionObserver(
+        entries => {
 
-            entries.forEach(entry => {
+          entries.forEach(entry => {
 
-              if (
-                entry.isIntersecting
-              ) {
+            if (entry.isIntersecting) {
 
-                this.startCounters();
+              this.startCounters();
 
-                observer.unobserve(
-                  entry.target
-                );
-              }
+              observer.unobserve(entry.target);
+            }
 
-            });
+          });
 
-          },
-          {
-            threshold: 0.3
-          }
-        );
+        },
+        {
+          threshold: 0.3
+        }
+      );
 
       if (this.counterSection) {
-        observer.observe(
-          this.counterSection.nativeElement
-        );
+        observer.observe(this.counterSection.nativeElement);
       }
     }
 
@@ -769,37 +636,35 @@ export class HomeComponent
 
       const videoEl = this.heroVideo.nativeElement;
 
-      const videoObserver =
-        new IntersectionObserver(
-          entries => {
+      // autoplay policy: video must be muted to play without a click
+      videoEl.muted = true;
+      videoEl.defaultMuted = true;
 
-            entries.forEach(entry => {
+      const videoObserver = new IntersectionObserver(
+        entries => {
 
-              if (entry.isIntersecting) {
+          entries.forEach(entry => {
 
-                videoEl.preload = 'auto';
-                videoEl.play().catch(() => {});
+            if (entry.isIntersecting) {
 
-                videoObserver.unobserve(
-                  entry.target
-                );
-              }
+              videoEl.preload = 'auto';
+              videoEl.play().catch(() => {});
 
-            });
+              videoObserver.unobserve(entry.target);
+            }
 
-          },
-          {
-            rootMargin: '200px'
-          }
-        );
+          });
+
+        },
+        {
+          rootMargin: '200px'
+        }
+      );
 
       videoObserver.observe(videoEl);
     }
 
-    const delay =
-      localStorage.getItem(
-        'sliderDelay'
-      );
+    const delay = localStorage.getItem('sliderDelay');
 
     if (delay) {
       this.sliderDelay = +delay;
@@ -808,10 +673,8 @@ export class HomeComponent
 
   resetCounters() {
 
-    this.counters.forEach(
-      counter => {
-        counter.displayValue = 0;
-      }
-    );
+    this.counters.forEach(counter => {
+      counter.displayValue = 0;
+    });
   }
 }
