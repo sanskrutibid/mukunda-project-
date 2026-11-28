@@ -355,6 +355,33 @@ h6 {
   color: var(--brand);
 }
 
+/* Keshavam City 7: sold out, shown greyed as track record */
+.projects-table tr.sold-out td {
+  color: #888;
+}
+
+.projects-table tr.sold-out a {
+  color: #888;
+}
+
+.projects-table .badge {
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* "What every Mukunda residential layout includes" (fix pack block 8) */
+.feature-item {
+  height: 100%;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-left: 3px solid var(--brand);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 /* =========================================
    6. SECTION HEADINGS
 ========================================= */
@@ -549,6 +576,8 @@ h6 {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  font-family: inherit;   /* .info-box is now a <button> */
+  appearance: none;
 }
 
 .info-box span {
