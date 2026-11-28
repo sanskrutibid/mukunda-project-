@@ -1,358 +1,470 @@
-<header class="header-wrapper" id="home">
-    <div id="carouselBackground" class="carousel slide carousel-fade w-100" data-bs-ride="carousel"
-        data-bs-interval="5000">
-        <div class="carousel-inner">
-            <div class="carousel-item" [class.active]="i === 0" *ngFor="let image of carouselImages; let i = index; trackBy: trackById">
-                <img alt="top real estate developer in Nagpur" [src]="image.url" class="d-block w-100" [attr.id]="image.id" title="Mukunda Infraventures"
-                    [attr.fetchpriority]="i === 0 ? 'high' : null" [attr.loading]="i === 0 ? 'eager' : 'lazy'" decoding="async">
-                <!-- <div class="carousel-caption-overlay">
-                    <h3 class="wave-text-once">
-                        <i>
-                            <span *ngFor="let word of waveText.split(' '); let i = index"
-                                [ngStyle]="{ 'animation-delay': (i * 0.2) + 's' }">
-                                {{ word }}&nbsp;
-                            </span>
-                        </i>
-                    </h3>
-                </div> -->
-            </div>
-        </div>
+<section class="vedio-section position-relative">
+  <div class="ratio ratio-16x9">
+    <video
+  #videoPlayer
+  class="w-100 h-100"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster="assets/images/hero-poster.webp"
+>
+  <source src="assets/vedio/Karma_Bhoomi.mp4?control=1" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+  </div>
 
-        <!-- Control Buttons -->
-        <button class="carousel-control-prev position-absolute top-50 end-0 translate-middle-y" type="button"
-            data-bs-target="#carouselBackground" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y" type="button"
-            data-bs-target="#carouselBackground" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+   <!-- <div class="ratio ratio-16x9">
+      <iframe [src]="vimeoUrl | safeUrl" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div> -->
+</section>
+
+<!-- Tagline keeps its wave animation; it is no longer the page H1 -->
+<section class="my-5" data-aos="fade-left">
+  <p class="wave-text-once h1">
+    <i>
+      <span *ngFor="let word of waveText.split(' '); let i = index" [ngStyle]="{ 'animation-delay': (i * 0.2) + 's' }">
+        {{ word }}&nbsp;
+      </span>
+    </i>
+  </p>
+
+</section>
+
+<!-- Page H1: says what is sold and where -->
+<section class="home-intro container my-4 text-center" data-aos="fade-up">
+  <h1 class="h2 fw-bold">Residential and industrial plots in Nagpur, developed by Mukunda Infraventures</h1>
+  <p class="lead">
+    Mukunda Infraventures &amp; Projects Pvt. Ltd., part of the Mukund Group, develops plotted layouts around Nagpur:
+    the 40-acre Karmabhoomi industrial estate on Bhandara Road, and residential projects at Tarodi, Jamtha, Sumthana
+    and Wagdhara near Hingna. Four projects carry MahaRERA registration numbers, listed below.
+  </p>
+  <a class="btn btn-danger me-2 mb-2" routerLink="/contacts">Book a site visit</a>
+  <a class="btn btn-outline-danger mb-2" href="https://wa.me/918956944848?text=Hi%2C%20I%27d%20like%20details%20of%20your%20plots%20in%20Nagpur." target="_blank" rel="noopener">WhatsApp us</a>
+</section>
+
+<section class="content-counter-section my-5">
+  <div class="p-3 m-5" style="text-align: justify;" data-aos="fade-up">
+    <h2 class="h3">Land approved for what you plan to build</h2>
+    <p>
+      We develop residential land and industrial land as separate projects, each approved for its own use. A family
+      buying in Ayodhya gets a plot in a MahaRERA-registered residential layout. A manufacturer buying in Karmabhoomi
+      gets a plot in an industrial estate with roads built for heavy vehicles. Neither depends on a later change of
+      land use.
+    </p>
+  </div>
+  <hr>
+  <div class="" data-aos="fade-up">
+    <p class="highlighted-quote text-center fs-4 fw-semibold px-4 py-2 mx-auto rounded">
+      We don’t just offer land — <span class="highlight-word">we create futures</span> for thriving families and growing
+      industries.
+    </p>
+
+
+
+    <div class="row justify-content-center text-center px-3 py-5 my-3 align-items-center g-4 position-relative"
+      data-aos="fade-up">
+      <div class="col-12 col-sm-6 col-lg-4 counter-sect position-relative text-danger p-2">
+        <p class="display-5 fw-bold mb-2">{{ counter1 }} +<span class="fs-3"></span></p>
+        <small class="d-block">Residential & Industrial projects developed</small>
+        <div class="slant-divider"></div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 counter-sect position-relative text-danger p-2">
+        <p class="display-5 fw-bold mb-2">{{ counter2 }} M+<span class="fs-3"></span></p>
+        <small class="d-block">sq.ft. of development</small>
+        <div class="slant-divider"></div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 counter-sect position-relative text-danger p-2">
+        <p class="display-5 fw-bold mb-2">{{ counter3 }} +<span class="fs-3"></span></p>
+        <small class="d-block">Families Empowered</small>
+        <div class="slant-divider"></div>
+      </div>
     </div>
-</header>
+
+  </div>
+</section>
+
+<!-- Projects table (homepage-copy.md block 5). All seven projects.
+     Rows marked CONFIRM WITH CLIENT use the size shown on the project page; replace when the client confirms. -->
+<section class="home-projects container my-5" data-aos="fade-up">
+  <h2 class="h3 mb-3">Our projects in Nagpur</h2>
+  <div class="table-responsive">
+    <table class="table projects-table align-middle">
+      <thead>
+        <tr><th>Project</th><th>Type</th><th>Location</th><th>Size</th><th>MahaRERA no.</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a routerLink="/karmabhumi">Karmabhoomi</a></td>
+          <td>Industrial plots</td>
+          <td>Mahalgaon, Bhandara Road</td>
+          <td>40 acres</td>
+          <td>P50500055060</td>
+        </tr>
+        <tr>
+          <td><a routerLink="/ayodhya">Ayodhya</a></td>
+          <td>Residential plots</td>
+          <td>Tarodi</td>
+          <td>10 acres</td>
+          <td>P50500079303</td>
+        </tr>
+        <tr>
+          <!-- CONFIRM WITH CLIENT: project page says 6 acres, llms.txt says 7 -->
+          <td><a routerLink="/keshavam-city-9">Mukunda Keshavam City 9</a></td>
+          <td>Residential plots</td>
+          <td>Wagdhara, Hingna</td>
+          <td>6 acres</td>
+          <td>P50500054443</td>
+        </tr>
+        <tr>
+          <!-- CONFIRM WITH CLIENT: project page says 5 acres, llms.txt says 6.
+               "Registration applied for" must be true; legal adviser to confirm before going live -->
+          <td><a routerLink="/keshavam-city-10">Mukunda Keshavam City 10</a></td>
+          <td>Residential plots</td>
+          <td>Wagdhara, Hingna</td>
+          <td>5 acres</td>
+          <td>Registration applied for</td>
+        </tr>
+        <tr>
+          <td><a routerLink="/vraj">Vraj</a></td>
+          <td>Residential plots</td>
+          <td>Jamtha</td>
+          <td>7 acres</td>
+          <td>Registration applied for</td>
+        </tr>
+        <tr>
+          <!-- CONFIRM WITH CLIENT: project page says 5 acres, llms.txt says 15 -->
+          <td><a routerLink="/dwarka">Dwarka</a></td>
+          <td>Residential plots</td>
+          <td>Sumthana</td>
+          <td>5 acres</td>
+          <td>Registration applied for</td>
+        </tr>
+        <tr class="sold-out">
+          <!-- CONFIRM WITH CLIENT: type of project, and 50 or 60 acres -->
+          <td><a routerLink="/keshavam-city-7">Keshavam City 7</a> <span class="badge bg-secondary ms-1">Sold out</span></td>
+          <td>Plotted project</td>
+          <td>Takli, MIHAN</td>
+          <td>50 acres</td>
+          <td>P50500053567</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Verify any registration number on the <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener">MahaRERA portal</a>.</p>
+</section>
+
+<!-- <section class="container-fluid Project-section" data-aos="fade-up">
+  <div class="my-5">
+    <div class="d-flex justify-content-between align-items-center m-4 p-4">
+      <h6 class="project-head display-6 position-relative">View All Projects</h6>
+    </div>
+    <div class="row g-3">
+      
+      <div class="col-12 col-md-4">
+        <div class="project-box position-relative">
+          <img src="assets/images/image/keshavam-city-9-view1.webp" class="img-fluid w-100" alt="top real estate developer in Nagpur" title="Mukunda Infraventures"/>
+          <div class="project-label mt-3">
+            KESHAVAM CITY 9
+          </div>
+          <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/ayodhya" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+   
+      <div class="col-12 col-md-4">
+        <div class="project-box position-relative">
+          <img src="assets/images/image/ayodhya6.webp" class="img-fluid w-100" alt="Leading property developer in Nagpur" title="Mukunda Infraventures"/>
+          <div class="project-label">
+            AYODHYA
+          </div>
+          <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/vraj" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+  
+      <div class="col-12 col-md-4">
+        <div class="project-box position-relative">
+          <img src="assets/images/image/carousel-2.webp" class="img-fluid w-100" alt="Commercial Land for Sale in Nagpur" title="Mukunda Infraventures"/>
+          <div class="project-label">
+            KARMABHOOMI
+          </div>
+          <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/karmabhumi" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
 
 
-<!-- <div class="wave-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#f9f7f2" fill-opacity="1"
-            d="M0,288L80,261.3C160,235,320,181,480,181.3C640,181,800,235,960,245.3C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z" />
-    </svg>
-</div> -->
+<section class="founder-section container-fluid my-5">
+  <!-- Tab Navigation -->
+  <div class="btn-group mb-4 d-flex justify-content-center flex-wrap" role="group" data-aos="fade-up">
+    <button class="btn tab-btn" [ngClass]="{'active': selectedTab === 1}" (click)="selectTab(1)">ABOUT OUR MUKUNDA
+      INFRAVENTURES & PROJECTS PVT. LTD. </button>
+    <button class="btn tab-btn" [ngClass]="{'active': selectedTab === 2}" (click)="selectTab(2)">OUR VISION</button>
+    <button class="btn tab-btn" [ngClass]="{'active': selectedTab === 3}" (click)="selectTab(3)">OUR MISSION</button>
+  </div>
 
-<div class="wave-divider">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#f9f7f2" fill-opacity="1"
-            d="M0,64L60,101.3C120,139,240,213,360,240C480,267,600,245,720,213.3C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-        </path>
-    </svg>
+
+ 
+
+  <!-- Main Content -->
+  <div class="row align-items-stretch">
+    <!-- Image Side -->
+    <div class="col-lg-6 col-12 founder-image position-relative" *ngIf="selectedTab === 1" data-aos="fade-right">
+      <img src="assets/images/image/u_logo_image.webp" alt="" width="1920" height="1528" loading="lazy"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-start" />
+
+    </div>
+
+    <div class="col-lg-6 col-12 founder-image position-relative" *ngIf="selectedTab === 2" data-aos="fade-right">
+      <img src="assets/images/image/home-vision.webp" alt="" loading="lazy"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-start" style="max-height: 450px;" />
+    
+    </div>
+
+    <div class="col-lg-6 col-12 founder-image position-relative" *ngIf="selectedTab === 3" data-aos="fade-right">
+      <img src="assets/images/image/mission-home1.webp" alt="" loading="lazy"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-start" style="max-height: 450px;" />
+   
+    </div>
+
+    <!-- Text Side -->
+    <div class="col-lg-6 col-12 p-4 bg-light rounded-end scrollable-container">
+
+      <div class="achievements mt-3" *ngIf="selectedTab === 1" data-aos="fade-right">
+  <h2 class="h3 fw-bold pb-3">About Mukunda Infraventures</h2>
+  <!-- homepage-copy.md block 6. Add the year of incorporation and the directors' names
+       once the client confirms them (owner-inputs items 1 and 11). -->
+  <p class="py-2 text-justify">
+    Mukunda Infraventure &amp; Projects Pvt. Ltd. is the land-development company of the Mukund Group
+    (Mukundbhai Ved Pariwar), which also works in transport, logistics and steel. It is run by its own
+    directors from its office on Bhandara Road, Nagpur.
+  </p>
+  <p class="text-justify">
+    The company develops plotted layouts around Nagpur: residential projects at Tarodi, Jamtha, Sumthana
+    and Wagdhara, and the Karmabhoomi industrial estate on Bhandara Road.
+  </p>
+  <a routerLink="/aboutus" class="text-danger fw-semibold">More about the company →</a>
 </div>
 
-<main class="main-wrapper">
 
-    <!-- <section id="about" class="container-fluid about-wrapper px-4">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <img alt="Leading property developer in Nagpur" [src]="aboutImage" class="img-fluid rounded-2 preview-image about-image" style="margin-top: 50px;" title="Mukunda Infraventures">
+      <div class="achievements mt-3" *ngIf="selectedTab === 2" data-aos="fade-right">
+        <h2 class="h3 fw-bold">Our Vision</h2>
+        <p class="h5 my-3 fst-italic text-danger">"Building foundations, shaping futures."</p>
+        <p>At Mukunda Infraventures Projects & Private Limited, our vision is to redefine the real estate landscape by creating spaces that inspire, uplift, and transform communities. We aim to be a name synonymous with innovation, trust, and enduring quality in the ever-evolving real estate sector.</p>
+        <p>We envision a future where every project is not just a development, but a vibrant ecosystem—crafted with thoughtful design, sustainable practices, and deep respect for nature and culture. Our focus is to deliver residential and commercial spaces that resonate with modern aspirations while upholding timeless values.</p>
+        <p>Driven by a passion to contribute meaningfully to urban growth, our vision is to grow into a leading force in real estate, known for projects that become landmarks of pride and prosperity for generations to come.</p>
+      </div>
+
+      <div class="achievements mt-3" *ngIf="selectedTab === 3" data-aos="fade-right">
+        <h2 class="h3 fw-bold">Our Mission</h2>
+        <p class="h5 my-3 fst-italic text-danger">"Turning dreams into addresses, one brick at a time."</p>
+        <p>Our mission is to create real estate experiences that exceed expectations, delivering value through strategic planning, cutting-edge construction, and a commitment to excellence. At Mukunda Infraventures, every square foot we develop reflects our dedication to quality, transparency, and customer-centricity.</p>
+        <p>We strive to empower lives by offering not just homes and commercial spaces, but elevated lifestyles and thriving environments. From concept to completion, we ensure that each project is rooted in integrity, driven by innovation, and built to inspire.</p>
+        <p>Our mission is not just to build structures, but to nurture relationships—by understanding customer needs, fulfilling dreams, and setting new benchmarks in design, service, and community building in the real estate sector.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid section-wrapper" data-aos="fade-up">
+    <div class="d-flex justify-content-between align-items-center m-4 p-4">
+      <h2 class="project-head display-6 position-relative">Project Overview</h2>
+    </div>
+    <div class="row align-items-center">
+      <!-- Left Column -->
+      <div class="col-md-4 col-12 mb-4 mb-md-0" data-aos="fade-right">
+        <div class="ground-text p-4">
+          <!-- <h2>Project Location</h2> -->
+          <!-- <h4 class="section-title">
+              Looking for something specific? We'd be <span class="highlight-word">delighted</span> to help you.
+            </h4> -->
+          <div class="row mt-4">
+            <div class="col-12 mb-3" *ngFor="let project of projectList; let i = index">
+              <!-- homepage-copy.md block 7: these are tabs, so <button>, not <a> -->
+              <button type="button" class="info-box w-100" [ngClass]="{ 'active': activeIndex === i }"
+                (click)="setActive(i)">
+                <span>{{ project.name }}</span>
+              </button>
             </div>
-
-            <div class=" col-md-6 justify-content-between ">
-                <div class="mb-md-0">
-                    <h2 class="title-content">
-                        <img alt="Commercial Land for Sale in Nagpur" src="/assets/images/u-logo.webp" style="width: 50px; margin-bottom: 15px;" title="Mukunda Infraventures">
-                        About Us
-                    </h2>
-
-                    <p style="text-align: justify;">{{ aboutText }}</p>
-                </div>
-
-                <a routerLink="/aboutus" class="learn-more-link" [class.visible]="showLearnMore"
-                    (click)="scrollToMore()">
-                    Learn More →
-                </a>
-            </div>
+          </div>
         </div>
-    </section> -->
+      </div>
 
-    <section id="about" class="about-modern-section py-5 px-3 px-md-5" data-aos="fade-up">
-        <div class="container">
-            <div class="align-items-center">
+      <!-- Right Column -->
+      <div class="col-md-8 col-12" data-aos="fade-up">
+        <div class="carousel-container position-relative">
+          <!-- Add the missing image -->
+          <img [src]="projectList[activeIndex].image" class="d-block w-100 h-100 rounded" [alt]="projectList[activeIndex].name + ' project, Nagpur'" loading="lazy"/>
 
-                <!-- Left: Icon and Heading -->
-                <!-- <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
-                    <div class="icon-box mb-3">
-                        <img alt="commercial plot for sale in Nagpur" src="/assets/images/u-logo.webp" style="width: 60px;" title="Mukunda Infraventures" />
-                    </div>
+          <!-- Glass caption on top of image -->
+          <div class="glass-caption position-absolute text-center"
+            style="bottom: 10%; left: 50%; transform: translateX(-50%); z-index: 10;">
+            <a [routerLink]="projectList[activeIndex].link" class="text-white text-decoration-none fs-4 fw-semibold">
+              Explore {{ projectList[activeIndex].name }}
+              <span class="ms-2 arrow-icon">&#8594;</span>
+            </a>
+          </div>
 
-                    <h2 class="about-title">Who We Are</h2>
-                    <hr class="title-underline" />
-                </div> -->
-
-                <!-- Right: Description and Button -->
-                <div class="">
-                    <h1 class="about-title">Who We Are</h1>
-
-                    <p class="about-description">{{ aboutText }}</p>
-
-                    <a routerLink="/aboutus" class="learn-more-link" [class.visible]="showLearnMore"
-                        (click)="scrollToMore()">
-                        Learn More →
-                    </a>
-
-                </div>
-            </div>
+          <!-- Custom arrows -->
+          <button class="carousel-control-prev custom-arrow" (click)="prevSlide()">
+            <span class="custom-arrow-icon">&#8592;</span>
+          </button>
+          <button class="carousel-control-next custom-arrow" (click)="nextSlide()">
+            <span class="custom-arrow-icon">&#8594;</span>
+          </button>
         </div>
-    </section>
-
-
-    <!-- Counter Section -->
-    <section class="counter-section mt-3" #counterSection data-aos="fade-up">
-        <div class="pb-3">
-            <div class="row text-center justify-content-center">
-
-                <div class="col-lg-4 col-md-6 px-3 mb-4" *ngFor="let counter of counters">
-                    <div class="p-4 card shadow rounded bg-white home-shape">
-
-                        <div class="icon" *ngIf="counter.icon">
-                            <fa-icon [icon]="counter.icon"></fa-icon>
-                        </div>
-
-                        <div class="count h2 pt-4">{{ counter.displayValue | number:'1.0-0' }}+</div>
-
-                        <!-- Display the value directly -->
-                        <p class="counter-p mb-0" style="padding-bottom: 50px;">
-                            {{ counter.label }}
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <div class="wave-divider2">
-
-        <!-- <svg viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,288L60,261.3C120,235,240,181,360,165.3C480,149,600,171,720,197.3C840,224,960,256,1080,256C1200,256,1320,224,1380,208L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-            </path>
-        </svg> -->
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,64L60,101.3C120,139,240,213,360,240C480,267,600,245,720,213.3C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-            </path>
-        </svg>
+      </div>
 
     </div>
+  </div>
+</section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="vision-wrapper">
-        <div class="container-fluid">
-            <div class="row align-items-center">
+<!-- homepage-copy.md block 8: one honest list instead of the nine-card carousel -->
+<section class="container-fluid Project-section" data-aos="fade-up">
+  <div class="my-5">
+    <div class="d-flex justify-content-between align-items-center m-4 p-4">
+      <h2 class="project-head display-6 position-relative">What every Mukunda residential layout includes</h2>
+    </div>
 
-                <!-- Image Left -->
-                <div class="col-lg-6 col-12 px-0" style="height:420px" data-aos="fade-left">
+    <div class="container">
+      <ul class="row list-unstyled g-3">
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Gated entry with 24/7 security and CCTV</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Wide internal roads with street lighting</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Underground drainage and sewage</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Water connection to each plot</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Electricity with transformer and street poles</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Landscaped gardens and a children's play area</div></li>
+        <li class="col-12 col-md-6 col-lg-4"><div class="feature-item">Rainwater harvesting</div></li>
+      </ul>
+      <p class="mt-3">Ayodhya also has a clubhouse, pool and gym. <a routerLink="/ayodhya" class="text-danger fw-semibold">See Ayodhya →</a></p>
+    </div>
+  </div>
+</section>
 
-                    <img
-                        alt="Best real estate investment in Nagpur"
-                        src="assets/images/image/vision-3.webp"
-                        class="img-fluid w-100 h-100 object-fit-cover"
-                        loading="lazy"
-                        title="Mukunda Infraventures"
-                    >
-
-                </div>
-
-                <!-- Text Right -->
-                <div class="col-lg-6 col-12 justify-content-between p-5"
-                    style="background-color: #f9f7f2;" data-aos="fade-right">
-
-                    <h2 class="mb-3 text-uppercase">Our Vision</h2>
-
-                    <p style="text-align: justify;">
-                        At Mukunda Infraventures & Projects Private Limited, our vision is to revolutionize real estate experiences by combining innovative
-                        solutions with unwavering integrity. We are committed to transforming properties into thriving
-                        communities, ensuring exceptional value for our clients and stakeholders.
-                    </p>
-
-                    <p class="h5 mt-3 fst-italic">"Your Gateway to a New Life."</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section id="mission" class="mission-wrapper">
-        <div class="container-fluid">
-            <div class="row align-items-center flex-lg-row-reverse">
-
-                <!-- Image Right -->
-                <div class="col-lg-6 col-12 px-0" style="height:420px" data-aos="fade-left">
-
-                    <img
-                        alt="residential plots for sale in Nagpur"
-                        src="assets/images/image/vision-2.webp"
-                        class="img-fluid w-100 h-100 object-fit-cover"
-                        loading="lazy"
-                        title="Mukunda Infraventures"
-                    >
-
-                </div>
-
-                <!-- Text Left -->
-                <div class="col-lg-6 col-12 text-start justify-content-between p-5"
-                    style="background-color: #f9f7f2;" data-aos="fade-right">
-
-                    <h2 class="mb-3 text-uppercase">Our Mission</h2>
-
-                    <p style="text-align: justify;">
-                        At Mukunda Infraventures & Projects Private Limited, our mission is to empower individuals and communities by providing innovative
-                        real estate solutions that cater to diverse needs. We are dedicated to guiding clients through
-                        every step of their real estate journey, offering personalized service, unmatched market
-                        expertise, and a commitment to excellence.
-                    </p>
-
-                    <p class="h5 mt-3 fst-italic">"Where Homes Happen."</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section id="values" class="values-wrapper">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-
-                <!-- Image Left -->
-                <div class="col-lg-6 col-12 px-0" style="height:420px" data-aos="fade-left">
-
-                    <img
-                        alt="land developer in Nagpur"
-                        src="assets/images/image/values-2.webp"
-                        class="img-fluid w-100 h-100 object-fit-cover"
-                        loading="lazy"
-                        title="Mukunda Infraventures"
-                    >
-
-                </div>
-
-                <!-- Text Right -->
-                <div class="col-lg-6 col-12 text-start p-5"
-                    style="background-color: #f9f7f2;" data-aos="fade-right">
-
-                    <h2 class="mb-3 text-uppercase">Our Values</h2>
-
-                    <p style="text-align: justify;">
-                        <b>Integrity:</b> We act with honesty and transparency in all our dealings. <br>
-                        <b>Innovation:</b> We embrace change and strive for continuous improvement.<br>
-                        <b>Quality:</b> We deliver excellence in every square foot we build. <br>
-                        <b>Sustainability:</b>We build responsibly with future in mind. <br>
-                        <b>Customer-Centricity:</b> Our clients are at the core of our business; their dreams shape our
-                        direction.
-                    </p>
-
-                    <p class="h5 mt-3 fst-italic">"Turning Dreams into Addresses."</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section class="vedio-section position-relative">
-
-        <div class="ratio ratio-16x9">
-
-            <video #heroVideo class="w-100 h-100" poster="assets/images/image/ayodhya.webp" preload="none" controls muted loop playsinline>
-                <source src="assets/vedio/Ayodhya.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-        </div>
-
-
-        <!-- <div class="wave-divider3">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#"#f8f9fa" fill-opacity="1"
-                    d="M0,64L60,101.3C120,139,240,213,360,240C480,267,600,245,720,213.3C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-                </path>
-            </svg>
-        </div> -->
-
-    </section>
-
-    <!-- Wave 3rd section -->
-    <!-- <div class="wave-divider3">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,64L60,101.3C120,139,240,213,360,240C480,267,600,245,720,213.3C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-            </path>
-        </svg>
-    </div> -->
-
-    <section class="Project-slider m-0 p-5">
-
-        <h2 class="text-center text-dark fw-bold text-uppercase">
-            Explore Our Newest Development
-        </h2>
-
-        <p class="h4 text-center text-dark m-2 p-2">
-            A fresh chapter in modern living and architectural brilliance.
-        </p>
-
-        <div class="gallery" data-aos="fade-up">
-
-            <div class="gallery-item fw-bold" *ngFor="let item of images; let i = index">
-
-                <div class="image-container">
-
-                    <ng-container *ngIf="item.src; else comingSoon">
-
-                        <img
-                            alt="Top real estate development company in Nagpur"
-                            [src]="item.src"
-                            loading="lazy"
-                            title="Mukunda Infraventures"
-                        />
-
-                    </ng-container>
-
-                    <ng-template #comingSoon>
-                        <div class="coming-soon-frame">Coming Soon</div>
-                    </ng-template>
-
-                </div>
-
-                <a [routerLink]="item.link" class="label">
-                    {{ item.label }}
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Visually Hidden FAQ Section for SEO (Data driven from TS file) -->
-    <section class="visually-hidden d-none" style="display: none !important;" aria-hidden="true">
-
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item" *ngFor="let faq of faqs">
-
-            <h3>{{ faq.question }}</h3>
-
-            <p>{{ faq.answer }}</p>
-
-        </div>
-
-    </section>
-
-</main>
-
-<!-- sticky-contact.component.html -->
+<section class="landmark-section">
+<div class="container-fluid my-5">
+  <div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center m-4 p-4">
+      <h2 class="project-head display-6 position-relative">Project gallery</h2>
+    </div> 
+</div>
+  <div class="row text-center justify-content-center">
+    <!-- Top Row -->
+    <div class="col-lg-4">
+      <div class="project-box">
+        <img src="assets/images/image/keshavam-city-9-view1.webp" class="img-fluid project-img" alt="Mukunda Keshavam City 9 layout, Wagdhara" width="1920" height="1280" loading="lazy"/>
+        
+        <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/keshavam-city-9" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+       <div class="label">Mukunda Keshavam City 9</div>
+       <small class="d-block text-muted">Residential plots · Wagdhara, Hingna</small>
+    </div>
+    <div class="col-lg-8">
+      <div class="project-box">
+        <img src="assets/images/image/ayodhya.webp" class="img-fluid project-img" alt="Ayodhya residential layout, Tarodi" width="1336" height="654" loading="lazy"/>
+         <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/ayodhya" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+      <div class="label">Ayodhya</div>
+      <small class="d-block text-muted">Residential plots · Tarodi</small>
+    </div> 
+    </div>
+    <div class="row text-center justify-content-center">
+    <!-- Top Row -->
+    <div class="col-lg-6">
+      <div class="project-box">
+        <img src="assets/images/image/karma1.webp" class="img-fluid project-img" alt="Karmabhoomi industrial plots" width="1280" height="619" loading="lazy"/>
+         <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/karmabhumi" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+      <div class="label">Karmabhoomi</div>
+      <small class="d-block text-muted">Industrial plots · Mahalgaon, Bhandara Road</small>
+    </div>
+     <div class="col-lg-6">
+      <div class="project-box">
+        <img src="assets/images/image/keshavam-city-7.webp" class="img-fluid project-img" alt="Mukunda Keshavam City 10, Wagdhara" width="1920" height="1080" loading="lazy"/>
+         <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/keshavam-city-10" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+      <div class="label">Mukunda Keshavam City 10</div>
+      <small class="d-block text-muted">Residential plots · Wagdhara, Hingna</small>
+    </div> 
+    </div>
+<div class="row text-center justify-content-center">
+    <!-- Top Row -->
+    <div class="col-lg-8">
+      <div class="project-box">
+        <img src="assets/images/image/dwar-2.webp" class="img-fluid project-img" alt="Dwarka residential layout, Sumthana" width="1640" height="856" loading="lazy"/>
+         <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/dwarka" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+      <div class="label">Dwarka</div>
+      <small class="d-block text-muted">Residential plots · Sumthana</small>
+    </div>
+    <div class="col-lg-4">
+      <div class="project-box">
+        <img src="assets/images/image/vraj.jpg" class="img-fluid project-img" alt="Vraj residential layout, Jamtha" width="1279" height="617" loading="lazy"/>
+         <div class="text-over-image d-flex align-items-center">
+            <a routerLink="/vraj" class="d-flex align-items-center text-white text-decoration-none">
+              <span class="invitation-text">EXPLORE</span>
+              <span class="invitation-line"></span>
+              <span class="arrow">&#8594;</span>
+            </a>
+          </div>
+      </div>
+      <div class="label">Vraj</div>
+      <small class="d-block text-muted">Residential plots · Jamtha</small>
+    </div> 
+    </div>
+  </div>
+</section>
