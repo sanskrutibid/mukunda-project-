@@ -63,8 +63,6 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   },
 
   '/keshavam-city-7': {
-    title: 'Keshavam City 7, MIHAN: Sold Out | Mukunda Infraventures',
-    description: 'Keshavam City 7 by Mukunda Infraventures in Takli, 500 metres from MIHAN, Nagpur. MahaRERA no. P50500053567. This project is sold out.',
     image: 'assets/og/home.jpg'
   },
 

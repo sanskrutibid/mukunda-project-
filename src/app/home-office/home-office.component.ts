@@ -2,13 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   Inject,
   OnInit,
   PLATFORM_ID,
   ViewChild
 } from '@angular/core';
 import { CommonModule, NgClass, isPlatformBrowser } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -66,20 +67,18 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
 
   isBrowser: boolean;
 
-  /* Fix pack block 4: counters render their FINAL value in the HTML
-     (prerendered page and Google see the real number, never 0).
-     CONFIRM WITH CLIENT: these figures differ from the About page
-     ("over 150 acres", "exceeding 5 million sq ft") – owner-inputs item 3. */
-  counter1 = 10;
-  counter2 = 2.6;
-  counter3 = 820;
+  counter1 = 0;
+  counter2 = 0;
+  counter3 = 0;
 
+  private animated = false;
   vimeoUrl: string = '';
 
   constructor(
     private el: ElementRef,
     private titleService: Title,
     private metaService: Meta,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -109,11 +108,11 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // Project Overview (fix pack block 7): the buttons are tabs, they only
-  // switch the picture. The "Explore <project> →" link on the picture
-  // opens that project's page.
+  // Project Overview: clicking a project opens that project's page
+  // (Karmabhoomi -> /karmabhumi, Ayodhya -> /ayodhya, ...)
   setActive(index: number) {
     this.activeIndex = index;
+    this.router.navigate([this.projectList[index].link]);
   }
 
   nextSlide() {
@@ -155,5 +154,36 @@ export class HomeOfficeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // Count-up animation from 0 removed (fix pack block 4: never animate from 0).
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    if (!this.animated && this.isInViewport()) {
+      this.animated = true;
+      this.startCount('counter1', 10);
+      this.startCount('counter2', 2.6);
+      this.startCount('counter3', 820);
+    }
+  }
+
+  startCount(property: 'counter1' | 'counter2' | 'counter3', target: number) {
+    let current = 0;
+
+    const interval = setInterval(() => {
+      current += 1;
+      (this as any)[property] = current;
+
+      if (current >= target) {
+        (this as any)[property] = target;
+        clearInterval(interval);
+      }
+    }, 30);
+  }
+
+  isInViewport(): boolean {
+    const rect = this.el.nativeElement.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom >= 0;
+  }
 }
